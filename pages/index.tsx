@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Head from "next/head";
 import Script from "next/script";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 // import { Boxes} from "lucide-react";
@@ -550,12 +551,14 @@ const HomePage: React.FC = () => {
               </Button>
             </motion.a>
 
-            <motion.a href="#services" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
                 className="py-5 font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 hover:shadow-xl px-9"
               >
-                View Services
+                <Link href="/Brochure.pdf" target="_blank">
+            Download Brochure
+          </Link>
               </Button>
             </motion.a>
           </motion.div>
@@ -1185,8 +1188,8 @@ const HomePage: React.FC = () => {
                   Bolia<span className="font-light">&Co.</span>
                 </motion.span>
               </motion.div>
-              <p className="items-center max-w-xs mt-2 ml-8 text-center text-gray-400 md:text-start md:ml-0">
-                Providing professional CA, taxation, and business advisory services with dedication and integrity.
+              <p className="items-center max-w-xs mt-2 ml-8 font-semibold text-center text-gray-400 md:text-start md:ml-0">
+                Established - 2001 <br /> Founder - Gajendra Singh Bolia <br /> Sphere - Charted Accountants (Since 1997) <br /> HeadQuaters - Gujarat (India) 
               </p>
               <motion.div className="flex justify-center mt-6 space-x-6 md:justify-start">
                 <motion.a href="https://www.facebook.com/boliaco" whileHover={{ y: -3, scale: 1.2 }} className="text-gray-400 hover:text-blue-400">
