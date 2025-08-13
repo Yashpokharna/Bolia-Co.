@@ -52,9 +52,8 @@ const ContactForm: React.FC = () => {
       if (response.ok) {
         setSubmitStatus({
           success: true,
-          message: "Thank you! Your message has been sent successfully.",
+          message: "Thank you! Your message has been received.",
         });
-        // Reset form on success
         setFormData({
           name: "",
           email: "",
@@ -64,13 +63,13 @@ const ContactForm: React.FC = () => {
       } else {
         setSubmitStatus({
           success: false,
-          message: "Something went wrong. Please try again later.",
+          message: "Submission failed. Please try again later.",
         });
       }
     } catch (error) {
       setSubmitStatus({
         success: false,
-        message: "Network error. Please check your connection and try again.",
+        message: "Network error. Please check your connection.",
       });
     } finally {
       setIsSubmitting(false);
@@ -78,24 +77,25 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <Card className="bg-white/5 backdrop-blur-md border border-white/10 shadow-lg rounded-2xl">
+    <Card className="border shadow-lg bg-white/5 backdrop-blur-md border-white/10 rounded-2xl">
       <CardHeader>
-        <CardTitle className="text-white text-3xl font-semibold font-heading">
+        <CardTitle className="text-3xl font-semibold text-white font-heading">
           Get in Touch
         </CardTitle>
-        <CardDescription className="text-gray-400 text-lg">
+        <CardDescription className="text-lg text-gray-400">
           Send us a message and we'll get back to you.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
         <form onSubmit={handleSubmit}>
           <div className="space-y-6">
-            <div className="space-y-4">
+            {/* Name */}
+            <div className="space-y-2">
               <label
                 htmlFor="name"
-                className="block text-gray-300 text-lg font-medium"
+                className="block text-lg font-medium text-gray-300"
               >
-                Name
+                Full Name
               </label>
               <input
                 type="text"
@@ -103,17 +103,19 @@ const ContactForm: React.FC = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your Name"
-                className="w-full px-4 py-3 rounded-md bg-black/20 text-white border border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter your full name"
+                className="w-full px-4 py-3 text-white border rounded-md bg-black/20 border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
-            <div className="space-y-4">
+
+            {/* Email */}
+            <div className="space-y-2">
               <label
                 htmlFor="email"
-                className="block text-gray-300 text-lg font-medium"
+                className="block text-lg font-medium text-gray-300"
               >
-                Email
+                Email Address
               </label>
               <input
                 type="email"
@@ -121,32 +123,37 @@ const ContactForm: React.FC = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Your Email"
-                className="w-full px-4 py-3 rounded-md bg-black/20 text-white border border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter your email"
+                className="w-full px-4 py-3 text-white border rounded-md bg-black/20 border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
               />
             </div>
-            <div className="space-y-4">
+
+            {/* Phone */}
+            <div className="space-y-2">
               <label
                 htmlFor="phone"
-                className="block text-gray-300 text-lg font-medium"
+                className="block text-lg font-medium text-gray-300"
               >
-                Phone
+                Phone Number
               </label>
               <input
-                type="number"
+                type="tel"
                 id="phone"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="Your Phone"
-                className="w-full px-4 py-3 rounded-md bg-black/20 text-white border border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter your phone number"
+                className="w-full px-4 py-3 text-white border rounded-md bg-black/20 border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
-            <div className="space-y-4">
+
+            {/* Message */}
+            <div className="space-y-2">
               <label
                 htmlFor="message"
-                className="block text-gray-300 text-lg font-medium"
+                className="block text-lg font-medium text-gray-300"
               >
                 Message
               </label>
@@ -155,17 +162,19 @@ const ContactForm: React.FC = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Your Message"
+                placeholder="Write your message or inquiry here"
                 className="w-full px-4 py-3 rounded-md bg-black/20 text-white border border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[120px] resize-y"
                 required
               ></textarea>
             </div>
 
+            {/* Status Message */}
             {submitStatus.message && (
               <motion.div
-                initial={{ opacity: 0, y: -10 }}
+                initial={{ opacity: 0, y: -5 }}
                 animate={{ opacity: 1, y: 0 }}
-                className={`p-3 rounded-md ${
+                transition={{ duration: 0.4 }}
+                className={`p-3 rounded-md text-center ${
                   submitStatus.success
                     ? "bg-green-500/20 text-green-200"
                     : "bg-red-500/20 text-red-200"
@@ -175,13 +184,13 @@ const ContactForm: React.FC = () => {
               </motion.div>
             )}
 
+            {/* Submit Button */}
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600
-                                      transition-all duration-300 shadow-lg hover:shadow-xl text-lg py-3 rounded-full font-semibold"
+              className="w-full py-3 text-lg font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 hover:shadow-xl"
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? "Sending..." : "Submit Message"}
             </Button>
           </div>
         </form>

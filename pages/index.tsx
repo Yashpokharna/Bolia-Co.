@@ -427,660 +427,527 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-  <div className="min-h-screen bg-white">
-    <Head>
-      <title>Bolia & Co. | Chartered Accountants</title>
-      <meta
-        name="description"
-        content="Bolia & Co. provides expert Chartered Accountancy services in Income Tax, GST, VAT & ST, TDS & TCS, Company Incorporation, Compliance, and Tax Litigation. We ensure efficient tax management and full statutory compliance for businesses and individuals."
-      />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta
-        name="keywords"
-        content="Bolia & Co., Chartered Accountants, Income Tax, GST, VAT, TDS, TCS, Company Incorporation, Compliance Services, Tax Litigation, CA firm, Tax advisory, Accounting services"
-      />
-      <meta
-        property="og:title"
-        content="Bolia & Co. | Professional Chartered Accountancy Services"
-      />
-      <meta
-        property="og:description"
-        content="Expert CA firm providing Income Tax, GST, VAT & ST, TDS & TCS, Company Incorporation, Compliance, and Tax Litigation services to businesses and individuals."
-      />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://boliaandco.com" />
-      <meta
-        property="og:image"
-        content="https://boliaandco.com/og-image.jpg"
-      />
-      <meta property="og:site_name" content="Bolia & Co." />
-      <meta property="og:locale" content="en_US" />
+    <div className="min-h-screen bg-white">
+      <Head>
+        <title>Bolia & Co. | Chartered Accountants</title>
+        <meta
+          name="description"
+          content="Bolia & Co. provides expert Chartered Accountancy services in Income Tax, GST, VAT & ST, TDS & TCS, Company Incorporation, Compliance, and Tax Litigation. We ensure efficient tax management and full statutory compliance for businesses and individuals."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="keywords"
+          content="Bolia & Co., Chartered Accountants, Income Tax, GST, VAT, TDS, TCS, Company Incorporation, Compliance Services, Tax Litigation, CA firm, Tax advisory, Accounting services"
+        />
+        <meta
+          property="og:title"
+          content="Bolia & Co. | Professional Chartered Accountancy Services"
+        />
+        <meta
+          property="og:description"
+          content="Expert CA firm providing Income Tax, GST, VAT & ST, TDS & TCS, Company Incorporation, Compliance, and Tax Litigation services to businesses and individuals."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://boliaandco.com" />
+        <meta
+          property="og:image"
+          content="https://boliaandco.com/og-image.jpg"
+        />
+        <meta property="og:site_name" content="Bolia & Co." />
+        <meta property="og:locale" content="en_US" />
 
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta
-        name="twitter:title"
-        content="Bolia & Co. | Trusted Chartered Accountants"
-      />
-      <meta
-        name="twitter:description"
-        content="Providing comprehensive CA services including Income Tax, GST, VAT & ST, TDS & TCS, Company Incorporation, Compliance, and Tax Litigation."
-      />
-      <meta
-        name="twitter:image"
-        content="https://boliaandco.com/og-image.jpg"
-      />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Bolia & Co. | Trusted Chartered Accountants"
+        />
+        <meta
+          name="twitter:description"
+          content="Providing comprehensive CA services including Income Tax, GST, VAT & ST, TDS & TCS, Company Incorporation, Compliance, and Tax Litigation."
+        />
+        <meta
+          name="twitter:image"
+          content="https://boliaandco.com/og-image.jpg"
+        />
 
-      <meta name="geo.region" content="IN-PB" />
-      <meta name="geo.placename" content="Your City, State" />
-      <meta name="geo.position" content="00.0000;00.0000" />
-      <meta name="ICBM" content="00.0000, 00.0000" />
+        <meta name="geo.region" content="IN-PB" />
+        <meta name="geo.placename" content="Your City, State" />
+        <meta name="geo.position" content="00.0000;00.0000" />
+        <meta name="ICBM" content="00.0000, 00.0000" />
 
-      <link rel="canonical" href="https://boliaandco.com" />
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+        <link rel="canonical" href="https://boliaandco.com" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
 
       <Navbar />
 
-{/* Hero Section */}
-{/* Hero Section */}
-<header
-  id="home"
-  className="bg-white container mx-auto px-6 lg:px-8 pt-32 pb-32 flex flex-col items-center justify-center text-center relative overflow-hidden min-h-[90vh]"
->
-  {/* Floating icons */}
-  <FloatingSVGGroup
-    elements={[
-      { icon: <Rocket className="text-indigo-500" />, position: { top: "5%", left: "15%" }, size: "lg", opacity: 0.7, delay: 0 },
-      { icon: <Zap className="text-yellow-500" />, position: { top: "25%", right: "20%" }, size: "md", opacity: 0.6, delay: 2 },
-      { icon: <Wand2 className="text-blue-500" />, position: { bottom: "10%", left: "40%" }, size: "lg", opacity: 0.7, delay: 1 },
-    ]}
-  />
+      {/* Hero Section */}
+      {/* Hero Section */}
+      <header
+        id="home"
+        className="bg-white container mx-auto px-6 lg:px-8 pt-32 pb-32 flex flex-col items-center justify-center text-center relative overflow-hidden min-h-[90vh]"
+      >
+        {/* Floating icons */}
+        <FloatingSVGGroup
+          elements={[
+            { icon: <Rocket className="text-indigo-500" />, position: { top: "5%", left: "15%" }, size: "lg", opacity: 0.7, delay: 0 },
+            { icon: <Zap className="text-yellow-500" />, position: { top: "25%", right: "20%" }, size: "md", opacity: 0.6, delay: 2 },
+            { icon: <Wand2 className="text-blue-500" />, position: { bottom: "10%", left: "40%" }, size: "lg", opacity: 0.7, delay: 1 },
+          ]}
+        />
 
-  {/* Full-width text */}
-  <div className="relative z-10 max-w-3xl">
-    <motion.h1
-      variants={fadeInVariants}
-      initial="hidden"
-      animate="visible"
-      className="mb-4 text-sm font-semibold tracking-widest text-indigo-500 uppercase"
-    >
-      Bolia &amp; Co.
-    </motion.h1>
-
-    <motion.h1
-      variants={fadeInVariants}
-      initial="hidden"
-      animate="visible"
-      className="mb-6 text-5xl font-bold leading-tight text-gray-900 sm:text-6xl font-heading"
-    >
-      Chartered Accountants for
-      <br className="hidden sm:block" /> Growth &amp; Compliance
-    </motion.h1>
-
-    <motion.p
-      variants={fadeInVariants}
-      initial="hidden"
-      animate="visible"
-      className="mb-10 text-lg leading-relaxed text-gray-600"
-    >
-      Trusted advisors for taxation, audit &amp; assurance, accounting, and business compliance.
-      We turn complex regulations into clear, actionable guidance—so you can grow with confidence.
-    </motion.p>
-
-    <motion.div
-      variants={fadeInVariants}
-      initial="hidden"
-      animate="visible"
-      className="flex flex-wrap justify-center gap-4"
-    >
-      <motion.a href="#contact" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-        <Button
-          size="lg"
-          className="py-5 font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 hover:shadow-xl px-9"
-        >
-          <span className="flex items-center gap-2">
-            Book a Consultation
-            <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-              →
-            </motion.span>
-          </span>
-        </Button>
-      </motion.a>
-
-      <motion.a href="#services" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-  <Button
-    size="lg"
-    className="py-5 font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 hover:shadow-xl px-9"
-    >
-    View Services
-  </Button>
-</motion.a>
-    </motion.div>
-  </div>
-</header>
-
-
-{/* About Us Section */}
-{/* About Us Section */}
-<section
-  id="about"
-  className="container relative px-6 mx-auto overflow-hidden bg-white lg:px-8 py-36"
->
-  <FloatingSVGGroup
-    elements={[
-      {
-        icon: <Gem className="text-blue-300/40" />,
-        position: { top: "20%", right: "15%" },
-        size: "xl",
-        opacity: 0.8,
-        delay: 0.3,
-      },
-      {
-        icon: <Rocket className="text-blue-400/40" />,
-        position: { bottom: "15%", left: "15%" },
-        size: "lg",
-        opacity: 0.8,
-        delay: 0.7,
-      },
-      {
-        icon: <BrainCircuit className="text-purple-300/40" />,
-        position: { top: "40%", left: "25%" },
-        size: "md",
-        opacity: 0.7,
-        delay: 0.5,
-      },
-    ]}
-  />
-
-  <div className="relative z-10 flex flex-col items-center gap-16 lg:flex-row">
-    <motion.div
-      className="w-full lg:w-1/2"
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.7 }}
-      viewport={{ once: true }}
-    >
-      <h2 className="mb-8 text-4xl font-bold text-gray-900 md:text-4xl font-heading">
-        <span className="bg-clip-text">
-          About Bolia & Co.
-        </span>
-      </h2>
-      <div className="w-32 h-1 mb-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-
-      <div className="space-y-6 text-lg text-gray-700">
-        <p>
-          Bolia & Co. is a professional chartered accountancy firm specializing in taxation, audit, accounting, and business compliance. We help businesses navigate complex financial regulations with confidence.
-        </p>
-        <p>
-          Our team of experienced chartered accountants provides accurate, reliable, and ethical advice tailored to your business needs, ensuring transparency and compliance at every step.
-        </p>
-        <p>
-          We are committed to building long-term client relationships, offering practical solutions, and supporting growth through informed financial decisions.
-        </p>
-        <p className="text-xl font-semibold text-gray-900">
-          Our Core Values:
-        </p>
-        <ul className="pl-6 space-y-2 text-gray-700 list-disc">
-          <li>Integrity and professionalism in all engagements</li>
-          <li>Transparent and client-focused solutions</li>
-          <li>Accuracy and attention to detail in financial reporting</li>
-          <li>Timely advice and proactive compliance support</li>
-          <li>Dedicated to helping clients grow and succeed</li>
-        </ul>
-      </div>
-
-      <div className="mt-10">
-        <a href="#services">
-          <Button
-            className="px-8 py-4 font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 hover:shadow-xl"
-            onClick={(e) => {
-              e.preventDefault();
-              const targetElement = document.getElementById("services");
-              if (targetElement) {
-                const yOffset = -80;
-                const y =
-                  targetElement.getBoundingClientRect().top +
-                  window.pageYOffset +
-                  yOffset;
-                window.scrollTo({ top: y, behavior: "auto" });
-              }
-            }}
+        {/* Full-width text */}
+        <div className="relative z-10 max-w-3xl">
+          <motion.h1
+            variants={fadeInVariants}
+            initial="hidden"
+            animate="visible"
+            className="mb-4 text-sm font-semibold tracking-widest text-indigo-500 uppercase"
           >
-            Explore Our Services
-          </Button>
-        </a>
-      </div>
-    </motion.div>
+            Bolia &amp; Co.
+          </motion.h1>
 
-    <motion.div
-      className="w-full lg:w-1/2"
-      initial={{ opacity: 0, x: 20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.7, delay: 0.2 }}
-      viewport={{ once: true }}
-    >
-      <div className="relative group">
-        <div className="absolute inset-0 transition-all duration-500 bg-white border border-gray-200 rounded-2xl group-hover:border-blue-300"></div>
-        <div className="relative p-8 bg-white shadow-lg rounded-2xl">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="p-3 bg-blue-100 rounded-xl">
-              <Zap className="w-6 h-6 text-blue-500" />
-            </div>
-            <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
-              Our Commitment
-            </h3>
-          </div>
+          <motion.h1
+            variants={fadeInVariants}
+            initial="hidden"
+            animate="visible"
+            className="mb-6 text-5xl font-bold leading-tight text-gray-900 sm:text-6xl font-heading"
+          >
+            Chartered Accountants for
+            <br className="hidden sm:block" /> Growth &amp; Compliance
+          </motion.h1>
 
-          <div className="space-y-8">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="flex items-start gap-4 p-4 transition-all duration-300 cursor-pointer rounded-xl hover:bg-blue-50"
-            >
-              <div className="p-3 bg-blue-100 rounded-xl">
-                <Zap className="w-5 h-5 text-blue-500" />
-              </div>
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900">
-                  Trusted Expertise
-                </h4>
-                <p className="mt-2 text-gray-700">
-                  Our team of chartered accountants delivers accurate, reliable, and ethical advice.
-                </p>
-              </div>
-            </motion.div>
+          <motion.p
+            variants={fadeInVariants}
+            initial="hidden"
+            animate="visible"
+            className="mb-10 text-lg leading-relaxed text-gray-600"
+          >
+            Trusted advisors for taxation, audit &amp; assurance, accounting, and business compliance.
+            We turn complex regulations into clear, actionable guidance—so you can grow with confidence.
+          </motion.p>
 
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="flex items-start gap-4 p-4 transition-all duration-300 cursor-pointer rounded-xl hover:bg-purple-50"
-            >
-              <div className="p-3 bg-purple-100 rounded-xl">
-                <BrainCircuit className="w-5 h-5 text-purple-500" />
-              </div>
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900">
-                  Compliance & Accuracy
-                </h4>
-                <p className="mt-2 text-gray-700">
-                  We ensure your business meets all statutory requirements with precision and clarity.
-                </p>
-              </div>
-            </motion.div>
+          <motion.div
+            variants={fadeInVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-wrap justify-center gap-4"
+          >
+            <motion.a href="#contact" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                size="lg"
+                className="py-5 font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 hover:shadow-xl px-9"
+              >
+                <span className="flex items-center gap-2">
+                  Book a Consultation
+                  <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                    →
+                  </motion.span>
+                </span>
+              </Button>
+            </motion.a>
 
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="flex items-start gap-4 p-4 transition-all duration-300 cursor-pointer rounded-xl hover:bg-pink-50"
-            >
-              <div className="p-3 bg-pink-100 rounded-xl">
-                <Gem className="w-5 h-5 text-pink-500" />
-              </div>
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900">
-                  Client-Focused Solutions
-                </h4>
-                <p className="mt-2 text-gray-700">
-                  We provide practical advice tailored to your business, supporting growth and success.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="flex items-start gap-4 p-4 transition-all duration-300 cursor-pointer rounded-xl hover:bg-blue-50"
-            >
-              <div className="p-3 bg-blue-100 rounded-xl">
-                <Users className="w-5 h-5 text-blue-500" />
-              </div>
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900">
-                  Long-Term Partnership
-                </h4>
-                <p className="mt-2 text-gray-700">
-                  We build lasting relationships, offering ongoing support for your evolving business needs.
-                </p>
-              </div>
-            </motion.div>
-          </div>
+            <motion.a href="#services" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                size="lg"
+                className="py-5 font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 hover:shadow-xl px-9"
+              >
+                View Services
+              </Button>
+            </motion.a>
+          </motion.div>
         </div>
-      </div>
-    </motion.div>
-  </div>
-</section>
+      </header>
+
+
+      {/* About Us Section */}
+      {/* About Us Section */}
+      <section
+        id="about"
+        className="container relative px-6 mx-auto overflow-hidden bg-white lg:px-8 py-36"
+      >
+        <FloatingSVGGroup
+          elements={[
+            {
+              icon: <Gem className="text-blue-300/40" />,
+              position: { top: "20%", right: "15%" },
+              size: "xl",
+              opacity: 0.8,
+              delay: 0.3,
+            },
+            {
+              icon: <Rocket className="text-blue-400/40" />,
+              position: { bottom: "15%", left: "15%" },
+              size: "lg",
+              opacity: 0.8,
+              delay: 0.7,
+            },
+            {
+              icon: <BrainCircuit className="text-purple-300/40" />,
+              position: { top: "40%", left: "25%" },
+              size: "md",
+              opacity: 0.7,
+              delay: 0.5,
+            },
+          ]}
+        />
+
+        <div className="relative z-10 flex flex-col items-center gap-16 lg:flex-row">
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="mb-8 text-4xl font-bold text-gray-900 md:text-4xl font-heading">
+              <span className="bg-clip-text">
+                About Bolia & Co.
+              </span>
+            </h2>
+            <div className="w-32 h-1 mb-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
+
+            <div className="space-y-6 text-lg text-gray-700">
+              <p>
+                Bolia & Co. is a professional chartered accountancy firm specializing in taxation, audit, accounting, and business compliance. We help businesses navigate complex financial regulations with confidence.
+              </p>
+              <p>
+                Our team of experienced chartered accountants provides accurate, reliable, and ethical advice tailored to your business needs, ensuring transparency and compliance at every step.
+              </p>
+              <p>
+                We are committed to building long-term client relationships, offering practical solutions, and supporting growth through informed financial decisions.
+              </p>
+              <p className="text-xl font-semibold text-gray-900">
+                Our Core Values:
+              </p>
+              <ul className="pl-6 space-y-2 text-gray-700 list-disc">
+                <li>Integrity and professionalism in all engagements</li>
+                <li>Transparent and client-focused solutions</li>
+                <li>Accuracy and attention to detail in financial reporting</li>
+                <li>Timely advice and proactive compliance support</li>
+                <li>Dedicated to helping clients grow and succeed</li>
+              </ul>
+            </div>
+
+            <div className="mt-10">
+              <a href="#services">
+                <Button
+                  className="px-8 py-4 font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 hover:shadow-xl"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const targetElement = document.getElementById("services");
+                    if (targetElement) {
+                      const yOffset = -80;
+                      const y =
+                        targetElement.getBoundingClientRect().top +
+                        window.pageYOffset +
+                        yOffset;
+                      window.scrollTo({ top: y, behavior: "auto" });
+                    }
+                  }}
+                >
+                  Explore Our Services
+                </Button>
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative group">
+              <div className="absolute inset-0 transition-all duration-500 bg-white border border-gray-200 rounded-2xl group-hover:border-blue-300"></div>
+              <div className="relative p-8 bg-white shadow-lg rounded-2xl">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-3 bg-blue-100 rounded-xl">
+                    <Zap className="w-6 h-6 text-blue-500" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+                    Our Commitment
+                  </h3>
+                </div>
+
+                <div className="space-y-8">
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="flex items-start gap-4 p-4 transition-all duration-300 cursor-pointer rounded-xl hover:bg-blue-50"
+                  >
+                    <div className="p-3 bg-blue-100 rounded-xl">
+                      <Zap className="w-5 h-5 text-blue-500" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold text-gray-900">
+                        Trusted Expertise
+                      </h4>
+                      <p className="mt-2 text-gray-700">
+                        Our team of chartered accountants delivers accurate, reliable, and ethical advice.
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="flex items-start gap-4 p-4 transition-all duration-300 cursor-pointer rounded-xl hover:bg-purple-50"
+                  >
+                    <div className="p-3 bg-purple-100 rounded-xl">
+                      <BrainCircuit className="w-5 h-5 text-purple-500" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold text-gray-900">
+                        Compliance & Accuracy
+                      </h4>
+                      <p className="mt-2 text-gray-700">
+                        We ensure your business meets all statutory requirements with precision and clarity.
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="flex items-start gap-4 p-4 transition-all duration-300 cursor-pointer rounded-xl hover:bg-pink-50"
+                  >
+                    <div className="p-3 bg-pink-100 rounded-xl">
+                      <Gem className="w-5 h-5 text-pink-500" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold text-gray-900">
+                        Client-Focused Solutions
+                      </h4>
+                      <p className="mt-2 text-gray-700">
+                        We provide practical advice tailored to your business, supporting growth and success.
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="flex items-start gap-4 p-4 transition-all duration-300 cursor-pointer rounded-xl hover:bg-blue-50"
+                  >
+                    <div className="p-3 bg-blue-100 rounded-xl">
+                      <Users className="w-5 h-5 text-blue-500" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold text-gray-900">
+                        Long-Term Partnership
+                      </h4>
+                      <p className="mt-2 text-gray-700">
+                        We build lasting relationships, offering ongoing support for your evolving business needs.
+                      </p>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
 
 
 
       {/* Services Section */}
-{/* Services Section */}
-<section
-  id="services"
-  className="container relative px-6 py-24 mx-auto overflow-hidden bg-white lg:px-8"
->
-  {/* Floating SVGs */}
-  <FloatingSVGGroup
-    elements={[
-      {
-        icon: <Cpu className="text-blue-600/70" />,
-        position: { top: "10%", left: "5%" },
-        size: "xl",
-        opacity: 0.7,
-        delay: 0.5,
-      },
-      {
-        icon: <Code2 className="text-indigo-400/70" />,
-        position: { bottom: "20%", right: "5%" },
-        size: "lg",
-        opacity: 0.7,
-        delay: 0.9,
-      },
-      {
-        icon: <Layers3 className="text-green-500/70" />,
-        position: { bottom: "40%", left: "30%" },
-        size: "md",
-        opacity: 0.6,
-        delay: 1.3,
-      },
-    ]}
-  />
-
-  {/* Section Title */}
-  <h2 className="text-4xl font-bold text-center text-gray-900 mb-16 relative z-[1] font-heading">
-    Our Services
-    <div className="absolute bottom-[-16px] left-1/2 transform -translate-x-1/2 w-32 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-  </h2>
-
-  {/* Services Grid 2x2 */}
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-[1]">
-    {services.slice(0, 4).map((service, index) => (
-      <motion.div
-        key={index}
-        whileHover={{ scale: 1.02 }}
-        className="p-8 transition-all duration-300 bg-white border border-gray-200 shadow-lg cursor-pointer rounded-2xl hover:shadow-xl"
+      {/* Services Section */}
+      <section
+        id="services"
+        className="container relative px-6 py-24 mx-auto overflow-hidden bg-white lg:px-8"
       >
-        <div className="mb-4">{service.icon}</div>
-        <h3 className="mb-2 text-xl font-bold text-gray-900">{service.title}</h3>
-        <p className="text-gray-700">{service.description}</p>
-      </motion.div>
-    ))}
-  </div>
-</section>
+        {/* Floating SVGs */}
+        <FloatingSVGGroup
+          elements={[
+            {
+              icon: <Cpu className="text-blue-600/70" />,
+              position: { top: "10%", left: "5%" },
+              size: "xl",
+              opacity: 0.7,
+              delay: 0.5,
+            },
+            {
+              icon: <Code2 className="text-indigo-400/70" />,
+              position: { bottom: "20%", right: "5%" },
+              size: "lg",
+              opacity: 0.7,
+              delay: 0.9,
+            },
+            {
+              icon: <Layers3 className="text-green-500/70" />,
+              position: { bottom: "40%", left: "30%" },
+              size: "md",
+              opacity: 0.6,
+              delay: 1.3,
+            },
+          ]}
+        />
+
+        {/* Section Title */}
+        <h2 className="text-4xl font-bold text-center text-gray-900 mb-16 relative z-[1] font-heading">
+          Our Services
+          <div className="absolute bottom-[-16px] left-1/2 transform -translate-x-1/2 w-32 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+        </h2>
+
+        {/* Services Grid 2x2 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-[1]">
+          {services.slice(0, 4).map((service, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.02 }}
+              className="p-8 transition-all duration-300 bg-white border border-gray-200 shadow-lg cursor-pointer rounded-2xl hover:shadow-xl"
+            >
+              <div className="mb-4">{service.icon}</div>
+              <h3 className="mb-2 text-xl font-bold text-gray-900">{service.title}</h3>
+              <p className="text-gray-700">{service.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
 
 
-{/* Why Choose Us Section */}
-<section
-  id="why-choose-us"
-  className="container px-6 py-24 mx-auto bg-white lg:px-8"
->
-  <h2 className="relative mb-16 text-4xl font-bold text-center text-gray-900 font-heading">
-    Why Choose Us?
-    <div className="absolute bottom-[-16px] left-1/2 transform -translate-x-1/2 w-32 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-  </h2>
+      {/* Why Choose Us Section */}
+      <section
+        id="why-choose-us"
+        className="container px-6 py-24 mx-auto bg-white lg:px-8"
+      >
+        <h2 className="relative mb-16 text-4xl font-bold text-center text-gray-900 font-heading">
+          Why Choose Us?
+          <div className="absolute bottom-[-16px] left-1/2 transform -translate-x-1/2 w-32 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+        </h2>
 
-  <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
-    {/* Card 1 */}
-    <div className="p-8 text-center transition-all border shadow-lg cursor-pointer rounded-2xl hover:shadow-xl ">
-      <div className="flex items-center justify-center mb-6">
-        <Calculator className="w-12 h-12 text-blue-500" />
-      </div>
-      <h3 className="mb-4 text-xl font-semibold text-gray-900">
-        Income Tax | GST | VAT & ST | TDS & TCS
-      </h3>
-      <p className="leading-relaxed text-gray-700">
-        Our team provides Income Tax, GST, VAT & ST and TDS & TCS services,
-        offering comprehensive solutions for registration, compliance,
-        advisory, and regulatory filings. Our expertise ensures efficient tax
-        management and full statutory compliance for businesses across sectors.
-      </p>
-    </div>
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+          {/* Card 1 */}
+          <div className="p-8 text-center transition-all border shadow-lg cursor-pointer rounded-2xl hover:shadow-xl ">
+            <div className="flex items-center justify-center mb-6">
+              <Calculator className="w-12 h-12 text-blue-500" />
+            </div>
+            <h3 className="mb-4 text-xl font-semibold text-gray-900">
+              Income Tax | GST | VAT & ST | TDS & TCS
+            </h3>
+            <p className="leading-relaxed text-gray-700">
+              Our team provides Income Tax, GST, VAT & ST and TDS & TCS services,
+              offering comprehensive solutions for registration, compliance,
+              advisory, and regulatory filings. Our expertise ensures efficient tax
+              management and full statutory compliance for businesses across sectors.
+            </p>
+          </div>
 
-    {/* Card 2 */}
-    <div className="p-8 text-center transition-all border shadow-lg cursor-pointer rounded-2xl hover:shadow-xl">
-      <div className="flex items-center justify-center mb-6">
-        <Building className="w-12 h-12 text-green-500" />
-      </div>
-      <h3 className="mb-4 text-xl font-semibold text-gray-900">
-        Company Incorporation | Compliance Services
-      </h3>
-      <p className="leading-relaxed text-gray-700">
-        We provide end-to-end company incorporation services, including entity
-        structuring, regulatory approvals, and documentation support. Our
-        expertise covers domestic and foreign company setup, ensuring full
-        compliance with local laws and seamless business registration.
-      </p>
-    </div>
+          {/* Card 2 */}
+          <div className="p-8 text-center transition-all border shadow-lg cursor-pointer rounded-2xl hover:shadow-xl">
+            <div className="flex items-center justify-center mb-6">
+              <Building className="w-12 h-12 text-green-500" />
+            </div>
+            <h3 className="mb-4 text-xl font-semibold text-gray-900">
+              Company Incorporation | Compliance Services
+            </h3>
+            <p className="leading-relaxed text-gray-700">
+              We provide end-to-end company incorporation services, including entity
+              structuring, regulatory approvals, and documentation support. Our
+              expertise covers domestic and foreign company setup, ensuring full
+              compliance with local laws and seamless business registration.
+            </p>
+          </div>
 
-    {/* Card 3 */}
-    <div className="p-8 transition-all border shadow-lg cursor-pointer rounded-2xl hover:shadow-xl">
-      <div className="flex items-center justify-center mb-6">
-        <Gavel className="w-12 h-12 text-purple-500" />
-      </div>
-      <h3 className="items-center mb-4 text-xl font-semibold text-center text-gray-900">
-        IT Appeals | IT Scrutiny | Tax Litigation Services
-      </h3>
-      <p className="leading-relaxed text-center text-gray-700">
-        We provide end-to-end tax litigation services, including
-        representation before tax authorities, appellate tribunals, and courts.
-        Our expertise spans income tax, GST, and international tax disputes,
-        with a focus on timely resolution and strategic advocacy.
-      </p>
-    </div>
-  </div>
-</section>
+          {/* Card 3 */}
+          <div className="p-8 transition-all border shadow-lg cursor-pointer rounded-2xl hover:shadow-xl">
+            <div className="flex items-center justify-center mb-6">
+              <Gavel className="w-12 h-12 text-purple-500" />
+            </div>
+            <h3 className="items-center mb-4 text-xl font-semibold text-center text-gray-900">
+              IT Appeals | IT Scrutiny | Tax Litigation Services
+            </h3>
+            <p className="leading-relaxed text-center text-gray-700">
+              We provide end-to-end tax litigation services, including
+              representation before tax authorities, appellate tribunals, and courts.
+              Our expertise spans income tax, GST, and international tax disputes,
+              with a focus on timely resolution and strategic advocacy.
+            </p>
+          </div>
+        </div>
+      </section>
 
 
       {/* Team Section */}
-<section
-  id="team"
-  className="container relative px-6 mx-auto overflow-hidden bg-white lg:px-8 py-36"
->
-  <FloatingSVGGroup
-    elements={[
-      {
-        icon: <UserCircle2 className="text-pink-400/50" />,
-        position: { bottom: "10%", right: "5%" },
-        size: "xl",
-        opacity: 0.5,
-        delay: 0.3,
-      },
-      {
-        icon: <Users className="text-blue-400/50" />,
-        position: { top: "15%", left: "8%" },
-        size: "xl",
-        opacity: 0.5,
-        delay: 0.6,
-      },
-    ]}
-  />
+      <section
+        id="team"
+        className="container relative px-6 mx-auto overflow-hidden bg-white lg:px-8 py-36"
+      >
+        <FloatingSVGGroup
+          elements={[
+            {
+              icon: <UserCircle2 className="text-pink-400/50" />,
+              position: { bottom: "10%", right: "5%" },
+              size: "xl",
+              opacity: 0.5,
+              delay: 0.3,
+            },
+            {
+              icon: <Users className="text-blue-400/50" />,
+              position: { top: "15%", left: "8%" },
+              size: "xl",
+              opacity: 0.5,
+              delay: 0.6,
+            },
+          ]}
+        />
 
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-    viewport={{ once: true }}
-    className="relative z-0 mb-20 text-center"
-  >
-    <h2 className="relative z-10 inline-block mb-6 text-4xl font-bold text-gray-900 md:text-5xl font-heading">
-      Our Team
-    </h2>
-    <div className="w-32 h-2 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-    <p className="max-w-3xl mx-auto mt-8 text-xl text-gray-700">
-      Meet the professionals behind our firm. With years of expertise in
-      Income Tax, GST, VAT, TDS, and corporate compliance, our team ensures
-      precise and strategic financial guidance for businesses and individuals.
-    </p>
-  </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="relative z-0 mb-20 text-center"
+        >
+          <h2 className="relative z-10 inline-block mb-6 text-4xl font-bold text-gray-900 md:text-5xl font-heading">
+            Our Team
+          </h2>
+          <div className="w-32 h-2 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
+          <p className="max-w-3xl mx-auto mt-8 text-xl text-gray-700">
+            Meet the professionals behind our firm. With years of expertise in
+            Income Tax, GST, VAT, TDS, and corporate compliance, our team ensures
+            precise and strategic financial guidance for businesses and individuals.
+          </p>
+        </motion.div>
 
-  <div className="relative z-0 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-    {teamMembers.map((member) => (
-      <TeamMemberCard
-        key={member.name}
-        member={{
-          ...member,
-          // ensure text is visible on white background
-          role: member.role,
-          name: member.name,
-          image: member.image,
-          description: member.description,
-        }}
-      />
-    ))}
-  </div>
-</section>
+        <div className="relative z-0 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+          {teamMembers.map((member) => (
+            <TeamMemberCard
+              key={member.name}
+              member={{
+                ...member,
+                // ensure text is visible on white background
+                role: member.role,
+                name: member.name,
+                image: member.image,
+                description: member.description,
+              }}
+            />
+          ))}
+        </div>
+      </section>
 
 
       {/* Testimonials */}
-      
-<section id="testimonials" className="relative py-24 overflow-hidden bg-white">
-  <div className="container relative z-0 px-6 mx-auto lg:px-8">
-    <FloatingSVGGroup
-      elements={[
-        {
-          icon: <Users className="text-purple-400/30" />,
-          position: { top: "10%", right: "5%" },
-          size: "lg",
-          opacity: 0.5,
-          delay: 0.3,
-        },
-        {
-          icon: <Gem className="text-blue-400/30" />,
-          position: { bottom: "15%", left: "8%" },
-          size: "md",
-          opacity: 0.5,
-          delay: 0.5,
-        },
-      ]}
-    />
 
-    <motion.div
-      variants={fadeInVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className="relative z-0 mb-16 text-center"
-    >
-      <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-5xl">
-        What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Clients Say</span>
-      </h2>
-      <p className="max-w-2xl mx-auto text-lg text-gray-700">
-        Hear from businesses and individuals who trust us with our services.
-      </p>
-      <div className="w-20 h-1 mx-auto mt-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
-    </motion.div>
-
-    <div className="relative z-0 grid grid-cols-1 gap-8 mt-16 cursor-pointer md:grid-cols-3">
-      {testimonials.map((testimonial, index) => (
-        <motion.div
-          key={testimonial.name}
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          whileHover={{ y: -8, transition: { duration: 0.3 } }}
-          className="relative overflow-hidden bg-white border border-gray-200 shadow-lg rounded-2xl"
-        >
-          <div className="p-8">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="relative">
-                <div className="relative w-16 h-16 overflow-hidden border-2 border-gray-200 rounded-full">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    loading="lazy"
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900">{testimonial.name}</h3>
-                <p className="text-gray-600">{testimonial.company}</p>
-              </div>
-            </div>
-            <p className="text-lg leading-relaxed text-gray-700">{testimonial.quote}</p>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
-
-
-      <section
-  id="faq"
-  className="bg-white py-24 rounded-b-[4rem] border-b border-gray-200 relative overflow-hidden"
->
-  <div className="container px-6 mx-auto lg:px-8">
-    <FloatingSVGGroup
-      elements={[
-        {
-          icon: <Boxes className="text-blue-400/50" />,
-          position: { top: "20%", right: "10%" },
-          size: "xl",
-          opacity: 0.5,
-          delay: 0.7,
-        },
-        {
-          icon: <Search className="text-purple-400/50" />,
-          position: { bottom: "25%", left: "10%" },
-          size: "lg",
-          opacity: 0.5,
-          delay: 0.4,
-        },
-      ]}
-    />
-
-    <motion.div
-      variants={fadeInVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className="mb-16 text-center"
-    >
-      <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-5xl">
-        Frequently <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Asked Questions</span>
-      </h2>
-      <p className="max-w-2xl mx-auto text-lg text-gray-700">
-        Find answers to common questions about our services and processes.
-      </p>
-      <div className="w-20 h-1 mx-auto mt-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
-    </motion.div>
-
-    <div className="max-w-4xl mx-auto">
-      {faqs.map((faq, index) => (
-        <FaqItem
-          key={index}
-          question={faq.question}
-          answer={faq.answer}
-          isOpen={openFaqIndex === index}
-          onClick={() => toggleFaq(index)}
-          questionClassName="text-gray-900 font-semibold"
-          answerClassName="text-gray-700"
-        />
-      ))}
-    </div>
-  </div>
-</section>
-
-
-
-      {/* Contact Section */}
-      <section id="contact" className="relative py-24 overflow-hidden">
-        <div className="container px-6 mx-auto lg:px-8">
+      <section id="testimonials" className="relative py-24 overflow-hidden bg-white">
+        <div className="container relative z-0 px-6 mx-auto lg:px-8">
           <FloatingSVGGroup
             elements={[
               {
-                icon: <Briefcase className="text-blue-400/80" />,
-                position: { top: "15%", right: "10%" },
+                icon: <Users className="text-purple-400/30" />,
+                position: { top: "10%", right: "5%" },
                 size: "lg",
-                opacity: 0.7,
-                delay: 0.5,
+                opacity: 0.5,
+                delay: 0.3,
               },
               {
-                icon: <Laptop2 className="text-purple-500/80" />,
-                position: { bottom: "10%", left: "5%" },
+                icon: <Gem className="text-blue-400/30" />,
+                position: { bottom: "15%", left: "8%" },
                 size: "md",
-                opacity: 0.7,
-                delay: 0.7,
+                opacity: 0.5,
+                delay: 0.5,
               },
             ]}
           />
@@ -1090,41 +957,191 @@ const HomePage: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-20 text-center"
+            className="relative z-0 mb-16 text-center"
           >
-            <h2 className="mb-10 text-3xl font-bold text-white md:text-5xl">
-              Let's<span className="text-blue-400"> Work Together</span>
+            <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-5xl">
+              What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Clients Say</span>
             </h2>
-            <p className="max-w-2xl mx-auto mb-10 text-lg text-gray-400">
-              Ready to start your next project? Reach out to us to discuss your
-              needs and how we can help bring your vision to life.
+            <p className="max-w-2xl mx-auto text-lg text-gray-700">
+              Hear from Businesses and Individuals who trust us with our services.
             </p>
-            <div className="w-20 h-1 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
+            <div className="w-20 h-1 mx-auto mt-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
-            <div>
-              <ContactInfo />
-            </div>
-            <div className="w-full max-w-md mx-auto md:mx-0">
-              <ContactForm />
-            </div>
+          <div className="relative z-0 grid grid-cols-1 gap-8 mt-16 cursor-pointer md:grid-cols-3">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="relative overflow-hidden bg-white border border-gray-200 shadow-lg rounded-2xl"
+              >
+                <div className="p-8">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="relative">
+                      <div className="relative w-16 h-16 overflow-hidden border-2 border-gray-200 rounded-full">
+                        <img
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          loading="lazy"
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900">{testimonial.name}</h3>
+                      <p className="text-gray-600">{testimonial.company}</p>
+                    </div>
+                  </div>
+                  <p className="text-lg leading-relaxed text-gray-700">{testimonial.quote}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
+
+      <section
+        id="faq"
+        className="bg-white py-24 rounded-b-[4rem] border-b border-gray-200 relative overflow-hidden"
+      >
+        <div className="container px-6 mx-auto lg:px-8">
+          <FloatingSVGGroup
+            elements={[
+              {
+                icon: <Boxes className="text-blue-400/50" />,
+                position: { top: "20%", right: "10%" },
+                size: "xl",
+                opacity: 0.5,
+                delay: 0.7,
+              },
+              {
+                icon: <Search className="text-purple-400/50" />,
+                position: { bottom: "25%", left: "10%" },
+                size: "lg",
+                opacity: 0.5,
+                delay: 0.4,
+              },
+            ]}
+          />
+
+          <motion.div
+            variants={fadeInVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-5xl">
+              Frequently <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Asked Questions</span>
+            </h2>
+            <p className="max-w-2xl mx-auto text-lg text-gray-700">
+              Find answers to common questions about our services and processes.
+            </p>
+            <div className="w-20 h-1 mx-auto mt-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto">
+            {faqs.map((faq, index) => (
+              <FaqItem
+                key={index}
+                question={faq.question}
+                answer={faq.answer}
+                isOpen={openFaqIndex === index}
+                onClick={() => toggleFaq(index)}
+                questionClassName="text-gray-900 font-semibold"
+                answerClassName="text-gray-700"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* Contact Section */}
+      <section id="contact" className="relative py-24 overflow-hidden bg-gray-900">
+        <div className="container px-6 mx-auto lg:px-8">
+          {/* Floating SVGs */}
+          <FloatingSVGGroup
+            elements={[
+              {
+                icon: <Briefcase className="text-blue-400/50" />,
+                position: { top: "15%", right: "10%" },
+                size: "lg",
+                opacity: 0.6,
+                delay: 0.5,
+              },
+              {
+                icon: <Laptop2 className="text-purple-500/50" />,
+                position: { bottom: "10%", left: "5%" },
+                size: "md",
+                opacity: 0.6,
+                delay: 0.7,
+              },
+            ]}
+          />
+
+          {/* Heading */}
+          <motion.div
+            variants={fadeInVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-20 text-center"
+          >
+            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
+              Connect <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">with us </span>
+            </h2>
+            <p className="max-w-2xl mx-auto mb-6 text-lg text-gray-400">
+              Start your journey with us—connect now.
+            </p>
+            <div className="w-20 h-1 mx-auto mt-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
+          </motion.div>
+
+          {/* Contact Info & Form */}
+          <div className="grid items-start grid-cols-1 gap-16 md:grid-cols-2">
+            {/* Left Column: Contact Info */}
+            <motion.div
+              variants={fadeInVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="space-y-8"
+            >
+              <ContactInfo />
+            </motion.div>
+
+            {/* Right Column: Contact Form */}
+            <motion.div
+              variants={fadeInVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="w-full max-w-md p-8 mx-auto shadow-lg md:mx-0 bg-gray-800/70 backdrop-blur-md rounded-2xl"
+            >
+              <ContactForm />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+
       {/* Footer - Enhanced with animated background text */}
-      <footer className="relative py-12 bg-gray-950/50 backdrop-blur-md min-h-[320px] flex items-center rounded-t-[4rem] border-t border-white/10">
+      {/* Footer - Bolia & Co. */}
+      <footer className="relative py-16 bg-gray-900 text-white min-h-[320px] flex items-center  border-t border-gray-800 overflow-hidden">
+
+        {/* Animated background text */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
-            animate={{
-              x: ["0%", "-50%"],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 60,
-              ease: "linear",
-            }}
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
             className="flex items-center h-full whitespace-nowrap"
           >
             {Array.from({ length: 8 }).map((_, i) => (
@@ -1132,35 +1149,26 @@ const HomePage: React.FC = () => {
                 key={i}
                 className="text-[15vw] font-black text-white/[0.03] tracking-tight select-none leading-none h-full flex items-center"
               >
-                KOSHILABS&nbsp;
+                BOLIA&CO.&nbsp;
               </span>
             ))}
           </motion.div>
         </div>
 
+        {/* Floating SVG decorations */}
         <FloatingSVGGroup
           elements={[
-            {
-              icon: <Rocket className="text-blue-400/60" />,
-              position: { bottom: "60%", left: "5%" },
-              size: "md",
-              opacity: 0.3,
-              delay: 0.3,
-            },
-            {
-              icon: <BrainCircuit className="text-purple-400/60" />,
-              position: { top: "30%", right: "8%" },
-              size: "md",
-              opacity: 0.3,
-              delay: 0.7,
-            },
+            { icon: <Rocket className="text-blue-400/60" />, position: { bottom: "60%", left: "5%" }, size: "md", opacity: 0.3, delay: 0.3 },
+            { icon: <BrainCircuit className="text-purple-400/60" />, position: { top: "30%", right: "8%" }, size: "md", opacity: 0.3, delay: 0.7 },
           ]}
           maxElements={2}
         />
 
+        {/* Footer content */}
         <div className="container relative z-10 px-6 mx-auto lg:px-8">
           <div className="grid items-start grid-cols-1 gap-12 md:grid-cols-3">
-            {/* KoshiLabs Text */}
+
+            {/* Branding & Socials */}
             <div className="text-center md:text-left">
               <motion.div
                 className="flex items-center justify-center mb-4 md:justify-start"
@@ -1168,166 +1176,72 @@ const HomePage: React.FC = () => {
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
                 <motion.span
-                  className="relative inline-block text-4xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-heading"
-                  animate={{
-                    textShadow: [
-                      "0 0 5px rgba(96, 165, 250, 0)",
-                      "0 0 15px rgba(96, 165, 250, 0.5)",
-                      "0 0 5px rgba(96, 165, 250, 0)",
-                    ],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
+                  className="relative inline-block text-4xl font-bold tracking-tighter text-transparent cursor-pointer bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-heading"
                 >
-                  Koshi<span className="font-light">Labs</span>
-                  <motion.div
-                    className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-                    initial={{ scaleX: 0, opacity: 0 }}
-                    whileHover={{ scaleX: 1, opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
+                  Bolia<span className="font-light">&Co.</span>
                 </motion.span>
               </motion.div>
               <p className="max-w-xs mt-2 text-gray-400">
-                Delivering innovative software solutions and services to
-                businesses worldwide.
+                Providing professional CA, taxation, and business advisory services with dedication and integrity.
               </p>
-
-              <motion.div
-                className="flex justify-center mt-6 space-x-6 md:justify-start"
-                initial={{ opacity: 0.7 }}
-                whileHover={{ opacity: 1 }}
-              >
-                <motion.a
-                  href="https://www.facebook.com/koshilabs"
-                  className="text-gray-400 transition-colors hover:text-blue-400"
-                  whileHover={{ y: -3, scale: 1.2 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  aria-label="KoshiLabs Facebook page"
-                >
+              <motion.div className="flex justify-center mt-6 space-x-6 md:justify-start">
+                <motion.a href="https://www.facebook.com/boliaco" whileHover={{ y: -3, scale: 1.2 }} className="text-gray-400 hover:text-blue-400">
                   <Facebook className="w-5 h-5" />
                 </motion.a>
-                <motion.a
-                  href="https://x.com/koshilabs"
-                  className="text-gray-400 transition-colors hover:text-blue-400"
-                  whileHover={{ y: -3, scale: 1.2 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  aria-label="KoshiLabs X page"
-                >
+                <motion.a href="https://x.com/boliaco" whileHover={{ y: -3, scale: 1.2 }} className="text-gray-400 hover:text-blue-400">
                   <X className="w-5 h-5" />
                 </motion.a>
-                <motion.a
-                  href="https://www.linkedin.com/company/koshilabs"
-                  className="text-gray-400 transition-colors hover:text-blue-400"
-                  whileHover={{ y: -3, scale: 1.2 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  aria-label="KoshiLabs LinkedIn page"
-                >
+                <motion.a href="https://www.linkedin.com/company/boliaco" whileHover={{ y: -3, scale: 1.2 }} className="text-gray-400 hover:text-blue-400">
                   <Linkedin className="w-5 h-5" />
                 </motion.a>
               </motion.div>
-
-              <motion.div
-                className="mt-6 text-sm text-gray-400"
-                whileHover={{ color: "#60A5FA" }}
-              >
-                © 2025 KoshiLabs. All rights reserved.
-              </motion.div>
+              <p className="mt-6 text-sm text-gray-400">&copy; 2025 Bolia & Co. All rights reserved.</p>
             </div>
 
             {/* Quick Links */}
             <div className="text-center md:text-left">
-              <h4 className="mb-6 text-xl font-semibold text-white">
-                Quick Links
-              </h4>
+              <h4 className="mb-6 text-xl font-semibold text-white">Quick Links</h4>
               <div className="grid grid-cols-2 gap-y-3 gap-x-6">
                 {[
                   { text: "Home", href: "#home" },
                   { text: "Services", href: "#services" },
-                  { text: "Products", href: "#products" },
+                  { text: "Why Choose Us", href: "#why-choose-us" },
                   { text: "Team", href: "#team" },
                   { text: "Testimonials", href: "#testimonials" },
                   { text: "FAQ", href: "#faq" },
-                  { text: "Contact Us", href: "#contact" },
-                  { text: "Email Us", href: "mailto:koshilabs@gmail.com" },
-                ].map((link, index) => (
-                  <motion.a
-                    key={index}
-                    href={link.href}
-                    className="text-gray-400 transition-colors hover:text-white"
-                    whileHover={{ x: 5, color: "#60A5FA" }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  >
+                  { text: "Contact", href: "#contact" },
+                  { text: "Email Us", href: "mailto:associatesbolia@gmail.com" },
+                ].map((link, i) => (
+                  <motion.a key={i} href={link.href} whileHover={{ x: 5, color: "#60A5FA" }} className="text-gray-400 hover:text-white">
                     {link.text}
                   </motion.a>
                 ))}
               </div>
             </div>
 
-            {/* Contact & Copyright */}
+            {/* Contact Info */}
             <div className="text-center md:text-right">
-              <h4 className="mb-6 text-xl font-semibold text-white">
-                Contact Information
-              </h4>
-              <motion.div
-                className="space-y-5 text-gray-400"
-                whileHover={{ opacity: 1 }}
-                initial={{ opacity: 0.9 }}
-              >
-                <motion.div
-                  className="flex items-center justify-center gap-3 md:justify-end"
-                  whileHover={{ x: -5, color: "#60A5FA" }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <div className="p-2 rounded-full bg-blue-500/10">
-                    <MapPin className="w-5 h-5 text-blue-400" />
-                  </div>
-                  <span>Birtamod, Koshi Province, Nepal</span>
+              <h4 className="mb-6 text-xl font-semibold text-white">Contact Information</h4>
+              <motion.div className="space-y-5 text-gray-400">
+                <motion.div className="flex items-center justify-center gap-3 md:justify-end" whileHover={{ x: -5, color: "#60A5FA" }}>
+                  <div className="p-2 rounded-full bg-blue-500/10"><MapPin className="w-5 h-5 text-blue-400" /></div>
+                  <span>Office 09, P 597, Ward 12 C, Gandhidham, Gujarat INDIA 370201</span>
                 </motion.div>
-                <motion.div
-                  className="flex items-center justify-center gap-3 md:justify-end"
-                  whileHover={{ x: -5, color: "#60A5FA" }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <div className="p-2 rounded-full bg-blue-500/10">
-                    <Phone className="w-5 h-5 text-blue-400" />
-                  </div>
-                  <span>
-                    <a
-                      href="tel:+977 9817996672"
-                      aria-label="Call +977 9817996672"
-                    >
-                      +977 9817996672
-                    </a>
-                  </span>
+                <motion.div className="flex items-center justify-center gap-3 md:justify-end" whileHover={{ x: -5, color: "#60A5FA" }}>
+                  <div className="p-2 rounded-full bg-blue-500/10"><Phone className="w-5 h-5 text-blue-400" /></div>
+                  <span><a href="tel:+919876543210">+91 2836233033 / +91 9104402201</a></span>
                 </motion.div>
-                <motion.div
-                  className="flex items-center justify-center gap-3 md:justify-end"
-                  whileHover={{ x: -5, color: "#60A5FA" }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <div className="p-2 rounded-full bg-blue-500/10">
-                    <Mail className="w-5 h-5 text-blue-400" />
-                  </div>
-                  <span>
-                    <a
-                      href="mailto:admin@koshilabs.com"
-                      aria-label="Email admin@koshilabs.com"
-                    >
-                      admin@koshilabs.com
-                    </a>
-                  </span>
+                <motion.div className="flex items-center justify-center gap-3 md:justify-end" whileHover={{ x: -5, color: "#60A5FA" }}>
+                  <div className="p-2 rounded-full bg-blue-500/10"><Mail className="w-5 h-5 text-blue-400" /></div>
+                  <span><a href="mailto:contact@boliaco.com">associatesbolia@gmail.com</a></span>
                 </motion.div>
               </motion.div>
             </div>
           </div>
         </div>
       </footer>
+
     </div>
   );
 };
-
 export default HomePage;

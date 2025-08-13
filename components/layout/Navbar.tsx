@@ -1,4 +1,6 @@
-import { useRef } from "react";
+"use client";
+
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -7,12 +9,13 @@ const navItems = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Team", href: "#team" },
-  { label: "Testimonails", href: "#testimonials" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
-  const navRef = useRef(null);
+  const navRef = useRef<HTMLElement>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
     const element = document.querySelector(id);
@@ -47,8 +50,8 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Menu */}
-        <div className="flex items-center space-x-2">
+        {/* Desktop Menu */}
+        <div className="items-center hidden space-x-4 md:flex">
           {navItems.map((item, index) => (
             <a
               key={index}
@@ -67,7 +70,48 @@ export default function Navbar() {
             </a>
           ))}
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="p-2 text-gray-800 rounded-md md:hidden hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? (
+            <span className="text-2xl">&times;</span>
+          ) : (
+            <span className="text-2xl">&#9776;</span>
+          )}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          transition={{ duration: 0.3 }}
+          className="bg-white border-t border-gray-200 shadow-md md:hidden"
+        >
+          <div className="flex flex-col px-6 py-4 space-y-2">
+            {navItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMobileMenuOpen(false); // close menu first
+                  setTimeout(() => {
+                    scrollToSection(item.href); // scroll after menu closes
+                  }, 100);
+                }}
+                className="block px-3 py-2 font-medium text-gray-800 transition-colors duration-200 rounded-lg hover:bg-gray-100"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </motion.div>
+      )}
     </motion.nav>
   );
 }
