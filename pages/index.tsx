@@ -1188,7 +1188,7 @@ const HomePage: React.FC = () => {
                   Bolia<span className="font-light">&Co.</span>
                 </motion.span>
               </motion.div>
-              <p className="items-center max-w-xs mt-2 ml-8 font-semibold text-center text-gray-400 md:text-start md:ml-0">
+              <p className="items-center max-w-xs mt-2 ml-9 font-semibold text-center text-gray-400 md:text-start md:ml-0">
                 Established - 2001 <br /> Founder - Gajendra Singh Bolia <br /> Sphere - Charted Accountants (Since 1997) <br /> HeadQuaters - Gujarat (India) 
               </p>
               <motion.div className="flex justify-center mt-6 space-x-6 md:justify-start">
