@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { Twitter, Linkedin, Github } from "lucide-react";
 import Image from "next/image";
 
-interface TeamMemberProps {
+export interface TeamMemberProps {
   name: string;
   title: string;
+  role?: string; // optional role
   image: string;
-  role?: string;
   social: {
     linkedin?: string;
     github?: string;
@@ -19,7 +19,6 @@ interface TeamMemberCardProps {
   member: TeamMemberProps;
 }
 
-// Enhanced team member card with hover effects
 const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -39,13 +38,10 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
       onHoverEnd={() => setIsHovered(false)}
       className="relative overflow-hidden border shadow-xl bg-white/5 backdrop-blur-sm rounded-xl border-white/10 group"
     >
-      {/* Profile section with hover effects */}
+      {/* Profile image */}
       <div className="relative pt-[80%] overflow-hidden">
         <motion.div
-          animate={{
-            scale: isHovered ? 1.05 : 1,
-            transition: { duration: 0.4 },
-          }}
+          animate={{ scale: isHovered ? 1.05 : 1, transition: { duration: 0.4 } }}
           className="absolute inset-0"
         >
           <Image
@@ -57,7 +53,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
           />
         </motion.div>
 
-        {/* Overlay gradient on hover */}
+        {/* Overlay */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"
           initial={{ opacity: 0 }}
@@ -66,15 +62,13 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
         />
       </div>
 
+      {/* Text content */}
       <motion.div
         className="relative z-10 p-5 text-center"
-        animate={{
-          y: isHovered ? -5 : 0,
-          transition: { type: "spring", stiffness: 400, damping: 17 },
-        }}
+        animate={{ y: isHovered ? -5 : 0, transition: { type: "spring", stiffness: 400, damping: 17 } }}
       >
         <h3 className="text-xl font-bold text-white">{member.name}</h3>
-        <p className="mt-1 font-medium text-blue-400">{member.title}</p>
+        <p className="mt-1 font-medium text-blue-400">{member.role || member.title}</p>
 
         {/* Social links */}
         <motion.div
@@ -125,7 +119,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
         </motion.div>
       </motion.div>
 
-      {/* Animated border bottom */}
+      {/* Animated border */}
       <motion.div
         className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"
         initial={{ scaleX: 0 }}
