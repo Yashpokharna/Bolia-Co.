@@ -6,6 +6,8 @@ const navItems = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Team", href: "#team" },
+  { label: "Testimonails", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -40,7 +42,7 @@ export default function Navbar() {
             scrollToSection("#home");
           }}
         >
-          <span className="text-2xl font-semibold text-indigo-700 -tight font-heading">
+          <span className="text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 font-heading">
             Bolia<span className=" text-gray-950">&nbsp;&amp; Co.</span>
           </span>
         </a>

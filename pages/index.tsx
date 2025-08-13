@@ -4,6 +4,8 @@ import Head from "next/head";
 import Script from "next/script";
 import dynamic from "next/dynamic";
 import { useRef } from "react";
+import { AnimatePresence } from "framer-motion";
+// import { Boxes} from "lucide-react";
 import { Calculator, Building, Gavel } from "lucide-react";
 import {
   Code2,
@@ -284,44 +286,74 @@ const faqs = [
   {
     question: "What services do you offer?",
     answer:
-      "We offer a wide range of services including software development, consulting, quality assurance, database management, performance optimization, and AI solutions. We specialize in product development, website development, system modernization, performance optimization, and strategic consulting. Our teams are skilled in providing both outsourcing services and complete project delivery.",
+      "We provide a comprehensive range of accounting and taxation services, including Income Tax, GST, VAT & ST, TDS & TCS, Company Incorporation, Compliance Services, and Tax Litigation. Our expertise ensures accurate filings, regulatory compliance, and strategic advisory for businesses of all sizes.",
   },
   {
-    question: "What makes Koshi Labs different from other software companies?",
+    question: "Why choose Bolia & Co. over other CA firms?",
     answer:
-      "Koshi Labs was founded on the principles of trust, quality, and affordability. With over 9 years of experience, our small team of experts delivers high-quality solutions at competitive prices. We're transparent in every step, from client communication to our technical approach. We utilize AI tools where appropriate to enhance efficiency, and we're deeply committed to understanding your unique business needs before proposing solutions.",
+      "Bolia & Co. is committed to professionalism, transparency, and personalized service. With years of experience, our team offers end-to-end solutions tailored to each client’s business needs. We combine technical expertise with timely, efficient service to ensure full statutory compliance and optimal tax management.",
   },
   {
-    question: "What technologies do you work with?",
+    question: "How do you handle taxation and compliance?",
     answer:
-      "We work with modern technologies including .NET, React, React Native, and various other frameworks and platforms. We choose the best technology stack for each project's specific needs, ensuring scalability, performance, and long-term maintainability. Our expertise spans both front-end and back-end development, cloud infrastructure, and AI/ML implementation.",
+      "Our team follows a structured approach to taxation and compliance. We manage registrations, filings, audits, and advisory services for Income Tax, GST, VAT & ST, TDS & TCS. By staying updated with the latest regulations, we minimize risks, avoid penalties, and ensure your business operates seamlessly within the law.",
   },
   {
-    question: "How do you approach new projects?",
+    question: "Do you assist with company incorporation?",
     answer:
-      "We begin by thoroughly understanding your business needs and objectives. Our approach is collaborative and transparent from the start. We develop a comprehensive project plan, establish clear milestones, and maintain regular communication throughout the development process. We believe in agile methodologies that allow for flexibility and iterative improvements based on feedback.",
+      "Yes, we provide end-to-end company incorporation services, including entity structuring, regulatory approvals, and documentation support. Whether setting up domestic or foreign entities, we ensure full compliance with local laws and facilitate a smooth registration process.",
   },
   {
-    question: "Do you offer support after project completion?",
+    question: "Can you help with tax disputes or litigation?",
     answer:
-      "Yes, we offer ongoing support and maintenance to ensure your software continues to operate smoothly. We're committed to your long-term success and provide various support options to meet your needs, including regular updates, performance monitoring, and technical assistance. Our goal is to build lasting partnerships with our clients.",
+      "Absolutely. Our team handles IT appeals, IT scrutiny, and tax litigation services. We represent clients before tax authorities, appellate tribunals, and courts, ensuring strategic advocacy and timely resolution for disputes related to Income Tax, GST, and international taxation.",
   },
   {
-    question: "Why should I choose Koshi Labs for my software needs?",
+    question: "What makes your team qualified?",
     answer:
-      "We offer an unwavering commitment to quality, delivering software that exceeds expectations. Our services are affordable without compromising on excellence. We combine local expertise with global standards, understanding the unique challenges of various markets. Most importantly, we view ourselves as partners, not just service providers, dedicated to your success through every stage of development and beyond.",
+      "Our professionals are highly experienced Chartered Accountants and tax experts with extensive knowledge across industries. We combine technical expertise with practical insights, ensuring our clients receive accurate, actionable advice and effective compliance solutions.",
   },
   {
-    question: "How do you ensure project quality?",
+    question: "Do you offer ongoing support after service delivery?",
     answer:
-      "We follow industry best practices for development and quality assurance, including rigorous testing and code reviews. Quality is built into every stage of our development process. We implement continuous integration/continuous deployment pipelines, automated testing, and regular security audits. Our team adheres to established coding standards and documentation practices to ensure maintainable, high-quality code.",
+      "Yes, we provide continuous support for taxation, compliance, and accounting services. Our team remains available for consultations, updates, and advisory needs to ensure your business maintains compliance and optimizes its financial operations.",
   },
   {
-    question: "What is your pricing model?",
+    question: "How transparent are your fees?",
     answer:
-      "We offer flexible pricing models tailored to project needs, including fixed-price projects, time and materials, and retainer-based engagements. We believe in transparent pricing with no hidden costs. During our initial consultation, we'll discuss your requirements in detail and recommend the most appropriate pricing structure for your specific project.",
+      "We offer clear and competitive pricing tailored to each client’s requirements. All fees are communicated upfront with no hidden costs. We provide detailed proposals, ensuring you understand the scope of work and associated costs before engagement.",
   },
 ];
+
+const FaqItem = ({ question, answer, isOpen, onClick }: any) => {
+  return (
+    <div className="py-4 border-b border-gray-200 cursor-pointer">
+      <h3
+        onClick={onClick}
+        className="flex items-center justify-between text-lg font-normal text-gray-900"
+      >
+        {question}
+        <span className="font-bold text-gray-900">{isOpen ? "−" : "+"}</span>
+      </h3>
+
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            key="content"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="mt-2 overflow-hidden text-gray-700"
+          >
+            {answer}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
 
 // Animation Variants
 const fadeInVariants = {
@@ -898,6 +930,7 @@ const HomePage: React.FC = () => {
 
 
       {/* Testimonials */}
+      
 <section id="testimonials" className="relative py-24 overflow-hidden bg-white">
   <div className="container relative z-0 px-6 mx-auto lg:px-8">
     <FloatingSVGGroup
@@ -927,7 +960,7 @@ const HomePage: React.FC = () => {
       className="relative z-0 mb-16 text-center"
     >
       <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-5xl">
-        What Our <span className="text-blue-500">Clients Say</span>
+        What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Clients Say</span>
       </h2>
       <p className="max-w-2xl mx-auto text-lg text-gray-700">
         Hear from businesses and individuals who trust us with our services.
@@ -935,7 +968,7 @@ const HomePage: React.FC = () => {
       <div className="w-20 h-1 mx-auto mt-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
     </motion.div>
 
-    <div className="relative z-0 grid grid-cols-1 gap-8 mt-16 md:grid-cols-3">
+    <div className="relative z-0 grid grid-cols-1 gap-8 mt-16 cursor-pointer md:grid-cols-3">
       {testimonials.map((testimonial, index) => (
         <motion.div
           key={testimonial.name}
@@ -972,60 +1005,63 @@ const HomePage: React.FC = () => {
 </section>
 
 
-      {/* FAQ Section */}
       <section
-        id="faq"
-        className="bg-gray-950/50 backdrop-blur-md py-24 rounded-b-[4rem] border-b border-white/10 relative overflow-hidden"
-      >
-        <div className="container px-6 mx-auto lg:px-8">
-          <FloatingSVGGroup
-            elements={[
-              {
-                icon: <Boxes className="text-blue-400/90" />,
-                position: { top: "20%", right: "10%" },
-                size: "xl",
-                opacity: 0.8,
-                delay: 0.7,
-              },
-              {
-                icon: <Search className="text-purple-400/90" />,
-                position: { bottom: "25%", left: "10%" },
-                size: "lg",
-                opacity: 0.7,
-                delay: 0.4,
-              },
-            ]}
-          />
+  id="faq"
+  className="bg-white py-24 rounded-b-[4rem] border-b border-gray-200 relative overflow-hidden"
+>
+  <div className="container px-6 mx-auto lg:px-8">
+    <FloatingSVGGroup
+      elements={[
+        {
+          icon: <Boxes className="text-blue-400/50" />,
+          position: { top: "20%", right: "10%" },
+          size: "xl",
+          opacity: 0.5,
+          delay: 0.7,
+        },
+        {
+          icon: <Search className="text-purple-400/50" />,
+          position: { bottom: "25%", left: "10%" },
+          size: "lg",
+          opacity: 0.5,
+          delay: 0.4,
+        },
+      ]}
+    />
 
-          <motion.div
-            variants={fadeInVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
-              Frequently <span className="text-blue-400">Asked Questions</span>
-            </h2>
-            <p className="max-w-2xl mx-auto text-lg text-gray-400">
-              Find answers to common questions about our services and process.
-            </p>
-            <div className="w-20 h-1 mx-auto mt-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
-          </motion.div>
+    <motion.div
+      variants={fadeInVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="mb-16 text-center"
+    >
+      <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-5xl">
+        Frequently <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Asked Questions</span>
+      </h2>
+      <p className="max-w-2xl mx-auto text-lg text-gray-700">
+        Find answers to common questions about our services and processes.
+      </p>
+      <div className="w-20 h-1 mx-auto mt-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
+    </motion.div>
 
-          <div className="max-w-4xl mx-auto">
-            {faqs.map((faq, index) => (
-              <FaqItem
-                key={index}
-                question={faq.question}
-                answer={faq.answer}
-                isOpen={openFaqIndex === index}
-                onClick={() => toggleFaq(index)}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+    <div className="max-w-4xl mx-auto">
+      {faqs.map((faq, index) => (
+        <FaqItem
+          key={index}
+          question={faq.question}
+          answer={faq.answer}
+          isOpen={openFaqIndex === index}
+          onClick={() => toggleFaq(index)}
+          questionClassName="text-gray-900 font-semibold"
+          answerClassName="text-gray-700"
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* Contact Section */}
       <section id="contact" className="relative py-24 overflow-hidden">
