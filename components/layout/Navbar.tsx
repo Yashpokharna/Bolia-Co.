@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -11,7 +11,6 @@ const navItems = [
 
 export default function Navbar() {
   const navRef = useRef(null);
-  const [activeSection, setActiveSection] = useState("home");
 
   const scrollToSection = (id: string) => {
     const element = document.querySelector(id);
@@ -22,25 +21,6 @@ export default function Navbar() {
       });
     }
   };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100;
-      navItems.forEach((item) => {
-        const section = document.querySelector(item.href);
-        if (section) {
-          const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-          const sectionHeight = section.offsetHeight;
-          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            setActiveSection(item.href.substring(1));
-          }
-        }
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <motion.nav
@@ -60,8 +40,8 @@ export default function Navbar() {
             scrollToSection("#home");
           }}
         >
-          <span className="text-2xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 font-heading">
-            Bolia<span className="font-light"> & Co.</span>
+          <span className="text-2xl font-semibold text-indigo-700 -tight font-heading">
+            Bolia<span className=" text-gray-950">&nbsp;&amp; Co.</span>
           </span>
         </a>
 
@@ -76,10 +56,9 @@ export default function Navbar() {
                 scrollToSection(item.href);
               }}
               className={cn(
-                "px-3 py-2 text-sm md:text-base font-medium transition-all duration-200 rounded-lg",
-                activeSection === item.href.substring(1)
-                  ? "text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500"
-                  : "text-gray-800 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500"
+                "relative px-3 py-2 text-sm md:text-base font-medium rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300",
+                "text-gray-800 hover:text-indigo-600",
+                "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-indigo-600 after:transition-all after:duration-300 after:w-0 hover:after:w-full"
               )}
             >
               {item.label}

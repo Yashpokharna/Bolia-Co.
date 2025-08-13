@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Head from "next/head";
 import Script from "next/script";
+import dynamic from "next/dynamic";
+import { useRef } from "react";
 import {
   Code2,
   Laptop2,
@@ -49,7 +51,7 @@ const products = [
     name: "KoshiFit",
     description: "Revolutionize fitness with AI-powered personal training.",
     category: "Mobile",
-    icon: <TrendingUp className="w-6 h-6 text-red-400 mb-4" />,
+    icon: <TrendingUp className="w-6 h-6 mb-4 text-red-400" />,
     detailedDescription: `KoshiFit is a cutting-edge fitness application that leverages artificial intelligence to provide personalized workout plans and nutrition advice.
         <br/><br/>
         <strong>Key Features:</strong>
@@ -66,7 +68,7 @@ const products = [
     name: "Accounting Suite",
     description: "Streamline finances with our intuitive accounting solution.",
     category: "Business",
-    icon: <Briefcase className="w-6 h-6 text-green-400 mb-4" />,
+    icon: <Briefcase className="w-6 h-6 mb-4 text-green-400" />,
     detailedDescription: `Our Accounting Suite is designed to simplify financial management for businesses of all sizes, from startups to enterprises.
         <br/><br/>
         <strong>Key Features:</strong>
@@ -83,7 +85,7 @@ const products = [
     name: "Finance API",
     description: "Integrate accounting seamlessly with our robust API.",
     category: "API",
-    icon: <Cpu className="w-6 h-6 text-blue-400 mb-4" />,
+    icon: <Cpu className="w-6 h-6 mb-4 text-blue-400" />,
     detailedDescription: `Our Finance API provides developers with a powerful way to integrate financial capabilities into their applications.
         <br/><br/>
         <strong>Key Features:</strong>
@@ -100,7 +102,7 @@ const products = [
     name: "LMS Platform",
     description: "Transform education with our innovative learning platform.",
     category: "Education",
-    icon: <BrainCircuit className="w-6 h-6 text-yellow-400 mb-4" />,
+    icon: <BrainCircuit className="w-6 h-6 mb-4 text-yellow-400" />,
     detailedDescription: `Our Learning Management System (LMS) Platform is built to enhance educational experiences in schools, universities, and corporate training environments.
         <br/><br/>
         <strong>Key Features:</strong>
@@ -118,7 +120,7 @@ const products = [
     description:
       "Enhance operations with our reliable service management solution.",
     category: "Business",
-    icon: <Gem className="w-6 h-6 text-pink-400 mb-4" />,
+    icon: <Gem className="w-6 h-6 mb-4 text-pink-400" />,
     detailedDescription: `ServiceHub is our comprehensive service management platform designed to optimize operations and enhance customer satisfaction.
         <br/><br/>
         <strong>Key Features:</strong>
@@ -136,7 +138,7 @@ const products = [
     description:
       "Modernize HR with our efficient attendance and workforce management system.",
     category: "HR",
-    icon: <Users className="w-6 h-6 text-purple-400 mb-4" />,
+    icon: <Users className="w-6 h-6 mb-4 text-purple-400" />,
     detailedDescription: `StaffTrack is a modern solution for tracking employee attendance, time-off, and work hours with precision and ease.
         <br/><br/>
         <strong>Key Features:</strong>
@@ -154,7 +156,7 @@ const products = [
 const services = [
   {
     title: "Development",
-    icon: <Code2 className="w-12 h-12 text-blue-400 mb-4" />,
+    icon: <Code2 className="w-12 h-12 mb-4 text-blue-400" />,
     description:
       "Crafting bespoke software solutions to meet your unique business needs. From concept to deployment, we ensure excellence.",
     detailedDescription: `Our software development service covers the entire development lifecycle, from ideation to deployment and maintenance.
@@ -171,7 +173,7 @@ const services = [
   },
   {
     title: "Modernization",
-    icon: <Rocket className="w-12 h-12 text-indigo-400 mb-4" />,
+    icon: <Rocket className="w-12 h-12 mb-4 text-indigo-400" />,
     description:
       "Transform your legacy systems into modern, scalable solutions that future-proof your business and increase operational efficiency.",
     detailedDescription: `Our Modernization service focuses on transforming outdated systems and processes to meet modern business requirements.
@@ -188,7 +190,7 @@ const services = [
   },
   {
     title: "Performance",
-    icon: <TrendingUp className="w-12 h-12 text-green-400 mb-4" />,
+    icon: <TrendingUp className="w-12 h-12 mb-4 text-green-400" />,
     description:
       "Optimize your applications for peak performance by fine-tuning frontend, backend, and database functionality with cutting-edge technologies.",
     detailedDescription: `Our Performance Optimization service ensures your software runs at maximum efficiency, providing the best possible user experience.
@@ -205,7 +207,7 @@ const services = [
   },
   {
     title: "Security",
-    icon: <Boxes className="w-12 h-12 text-red-400 mb-4" />,
+    icon: <Boxes className="w-12 h-12 mb-4 text-red-400" />,
     description:
       "Protect your applications and data with comprehensive security solutions that identify vulnerabilities and implement industry-leading protection measures.",
     detailedDescription: `Our Security service provides robust protection for your applications, infrastructure, and data assets through comprehensive assessment and implementation.
@@ -222,7 +224,7 @@ const services = [
   },
   {
     title: "Database",
-    icon: <Database className="w-12 h-12 text-purple-400 mb-4" />,
+    icon: <Database className="w-12 h-12 mb-4 text-purple-400" />,
     description:
       "Designing, implementing, and managing robust database systems for optimal performance and data integrity.",
     detailedDescription: `Our Database Solutions cover everything from database design to optimization and ongoing administration.
@@ -239,7 +241,7 @@ const services = [
   },
   {
     title: "AI & ML",
-    icon: <BrainCircuit className="w-12 h-12 text-pink-400 mb-4" />,
+    icon: <BrainCircuit className="w-12 h-12 mb-4 text-pink-400" />,
     description:
       "Developing cutting-edge AI-powered solutions to transform your business and gain a competitive edge.",
     detailedDescription: `Our AI & ML Solutions help businesses leverage the power of artificial intelligence and machine learning to gain insights, automate processes, and create innovative products.
@@ -256,7 +258,7 @@ const services = [
   },
   {
     title: "Automation",
-    icon: <Search className="w-12 h-12 text-yellow-400 mb-4" />,
+    icon: <Search className="w-12 h-12 mb-4 text-yellow-400" />,
     description:
       "Ensuring the highest standards of quality through rigorous testing and automated quality assurance processes.",
     detailedDescription: `Our QA & Automation service ensures your software meets the highest standards of reliability, performance, and user experience.
@@ -273,7 +275,7 @@ const services = [
   },
   {
     title: "Consulting",
-    icon: <Briefcase className="w-12 h-12 text-orange-400 mb-4" />,
+    icon: <Briefcase className="w-12 h-12 mb-4 text-orange-400" />,
     description:
       "Providing expert guidance and strategic advice to drive your business growth and achieve your technology goals.",
     detailedDescription: `Our IT consulting services provide expert guidance to help you navigate complex technological and business challenges.
@@ -290,7 +292,7 @@ const services = [
   },
   {
     title: "DevOps & Cloud",
-    icon: <Laptop2 className="w-12 h-12 text-blue-500 mb-4" />,
+    icon: <Laptop2 className="w-12 h-12 mb-4 text-blue-500" />,
     description:
       "Enhancing the speed, efficiency, and scalability of your systems with modern DevOps practices and cloud solutions.",
     detailedDescription: `Our DevOps & Cloud service helps identify and implement best practices for continuous integration, delivery, and cloud infrastructure.
@@ -470,13 +472,13 @@ const HomePage: React.FC = () => {
     // Clean up
     return () => {
       anchorLinks.forEach((anchor) => {
-        anchor.removeEventListener("click", () => {});
+        anchor.removeEventListener("click", () => { });
       });
     };
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-purple-900 to-black min-h-screen">
+    <div className="min-h-screen bg-white">
       <Head>
         <title>Koshi Labs - Crafting Digital Excellence</title>
         <meta
@@ -530,190 +532,92 @@ const HomePage: React.FC = () => {
 
       <Navbar />
 
-      {/* Hero Section */}
-      <header
-        id="home"
-        className="container mx-auto px-6 lg:px-8 pt-32 pb-32 flex items-center justify-between relative overflow-hidden min-h-[90vh]"
-      >
-        <FloatingSVGGroup
-          elements={[
-            {
-              icon: <Rocket className="text-blue-400/90" />,
-              position: { top: "5%", left: "20%" },
-              size: "lg",
-              opacity: 0.8,
-              delay: 0,
-            },
-            {
-              icon: <Zap className="text-yellow-400/90" />,
-              position: { top: "30%", right: "15%" },
-              size: "md",
-              opacity: 0.7,
-              delay: 2,
-            },
-            {
-              icon: <Wand2 className="text-purple-400/90" />,
-              position: { bottom: "15%", left: "40%" },
-              size: "lg",
-              opacity: 0.8,
-              delay: 1,
-            },
-          ]}
-        />
+{/* Hero Section */}
+{/* Hero Section */}
+<header
+  id="home"
+  className="bg-white container mx-auto px-6 lg:px-8 pt-32 pb-32 flex flex-col items-center justify-center text-center relative overflow-hidden min-h-[90vh]"
+>
+  {/* Floating icons */}
+  <FloatingSVGGroup
+    elements={[
+      { icon: <Rocket className="text-indigo-500" />, position: { top: "5%", left: "15%" }, size: "lg", opacity: 0.7, delay: 0 },
+      { icon: <Zap className="text-yellow-500" />, position: { top: "25%", right: "20%" }, size: "md", opacity: 0.6, delay: 2 },
+      { icon: <Wand2 className="text-blue-500" />, position: { bottom: "10%", left: "40%" }, size: "lg", opacity: 0.7, delay: 1 },
+    ]}
+  />
 
-        <div className="max-w-xl relative z-10 text-left mx-4 md:mx-8 mt-8">
-          <motion.h1
-            variants={fadeInVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-5xl sm:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-8
-                                   drop-shadow-lg font-heading"
-          >
-            Crafting Digital Excellence
-          </motion.h1>
-          <motion.p
-            variants={fadeInVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-xl text-gray-300 mb-12 leading-relaxed"
-          >
-            Your trusted partner for innovative software solutions. We
-            specialize in development, consulting, and AI-powered services.
-          </motion.p>
-          <motion.div
-            variants={fadeInVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-wrap gap-4"
-          >
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-blue-500 to-purple-500 border-none text-white
-                        hover:from-blue-600 hover:to-purple-600 transition-all duration-300
-                        shadow-lg hover:shadow-[0_0_25px_rgba(59,130,246,0.7)] 
-                        text-xl px-10 py-6 rounded-full font-semibold"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const targetElement = document.getElementById("contact");
-                  if (targetElement) {
-                    const yOffset = -80;
-                    const y =
-                      targetElement.getBoundingClientRect().top +
-                      window.pageYOffset +
-                      yOffset;
-                    window.scrollTo({ top: y, behavior: "auto" });
-                  }
-                }}
-              >
-                <span className="flex items-center gap-2">
-                  Contact Us
-                  <motion.span
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    →
-                  </motion.span>
-                </span>
-              </Button>
-            </motion.a>
-          </motion.div>
-        </div>
+  {/* Full-width text */}
+  <div className="relative z-10 max-w-3xl">
+    <motion.h1
+      variants={fadeInVariants}
+      initial="hidden"
+      animate="visible"
+      className="mb-4 text-sm font-semibold tracking-widest text-indigo-500 uppercase"
+    >
+      Bolia &amp; Co.
+    </motion.h1>
 
-        {/* Hero section globe - Only render on desktop screens, not on mobile */}
-        <div className="hidden md:block w-1/2 relative mx-4">
-          <motion.div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            {/* This entire globe component will only render on md screens and above */}
-            {/* The hidden md:block class on the parent div ensures it's never in the DOM on mobile */}
-            <motion.div
-              className="relative w-[450px] h-[450px]"
-              animate={{
-                y: [0, -15, 0, 15, 0],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-3xl"></div>
+    <motion.h1
+      variants={fadeInVariants}
+      initial="hidden"
+      animate="visible"
+      className="mb-6 text-5xl font-bold leading-tight text-gray-900 sm:text-6xl font-heading"
+    >
+      Chartered Accountants for
+      <br className="hidden sm:block" /> Growth &amp; Compliance
+    </motion.h1>
 
-              {/* Simplified globe with fewer elements */}
-              <div className="absolute inset-0 border-2 border-blue-400/40 rounded-full" />
-              <div className="absolute inset-[20%] border border-blue-400/20 rounded-full" />
+    <motion.p
+      variants={fadeInVariants}
+      initial="hidden"
+      animate="visible"
+      className="mb-10 text-lg leading-relaxed text-gray-600"
+    >
+      Trusted advisors for taxation, audit &amp; assurance, accounting, and business compliance.
+      We turn complex regulations into clear, actionable guidance—so you can grow with confidence.
+    </motion.p>
 
-              {/* Reduced number of tech points */}
-              <motion.div
-                className="absolute top-[10%] left-[20%] w-4 h-4 bg-blue-400 rounded-full"
-                animate={{ scale: [1, 1.5, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-              <motion.div
-                className="absolute bottom-[15%] right-[30%] w-5 h-5 bg-purple-400 rounded-full"
-                animate={{ scale: [1, 1.8, 1] }}
-                transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
-              />
+    <motion.div
+      variants={fadeInVariants}
+      initial="hidden"
+      animate="visible"
+      className="flex flex-wrap justify-center gap-4"
+    >
+      <motion.a href="#contact" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <Button
+          size="lg"
+          className="py-5 text-lg font-semibold text-white transition-all duration-300 bg-indigo-600 border-none rounded-full shadow-lg hover:bg-indigo-700 hover:shadow-xl px-9"
+        >
+          <span className="flex items-center gap-2">
+            Book a Consultation
+            <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+              →
+            </motion.span>
+          </span>
+        </Button>
+      </motion.a>
 
-              {/* Reduced number of connection lines */}
-              <motion.div
-                className="absolute top-[45%] left-[45%] w-[100%] h-[1.5px] bg-blue-400/40 origin-left"
-                style={{ rotate: -30 }}
-                animate={{ opacity: [0.2, 0.6, 0.2] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              />
-              <motion.div
-                className="absolute top-[45%] left-[45%] w-[90%] h-[1.5px] bg-purple-400/40 origin-left"
-                style={{ rotate: 45 }}
-                animate={{ opacity: [0.2, 0.5, 0.2] }}
-                transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-              />
+      <motion.a href="#services" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+  <Button
+    size="lg"
+    variant="outline"
+    className="py-5 text-lg font-semibold text-indigo-600 transition-all duration-300 border-indigo-400 rounded-full px-9 hover:bg-indigo-600 hover:text-white hover:border-indigo-600"
+  >
+    View Services
+  </Button>
+</motion.a>
+    </motion.div>
+  </div>
+</header>
 
-              {/* Reduced number of tech icons */}
-              <motion.div
-                className="absolute top-0 left-[45%] p-3 bg-gray-900/80 rounded-full border border-blue-400/30"
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-              >
-                <Code2 className="w-8 h-8 text-blue-400" />
-              </motion.div>
-              <motion.div
-                className="absolute bottom-5 right-[25%] p-3 bg-gray-900/80 rounded-full border border-purple-400/30"
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-              >
-                <Cpu className="w-8 h-8 text-purple-400" />
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        </div>
 
-        {/* Mobile Hero Section */}
-        <div className="block md:hidden w-full mt-8">
-          <div className="flex justify-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full p-5 w-32 h-32 flex items-center justify-center"
-            >
-              <Rocket className="w-16 h-16 text-blue-400/90" />
-            </motion.div>
-          </div>
-        </div>
-      </header>
+
 
       {/* About Us Section */}
       <section
         id="about"
-        className="container mx-auto px-6 lg:px-8 py-36 relative overflow-hidden"
+        className="container relative px-6 mx-auto overflow-hidden lg:px-8 py-36"
       >
         <FloatingSVGGroup
           elements={[
@@ -741,7 +645,7 @@ const HomePage: React.FC = () => {
           ]}
         />
 
-        <div className="flex flex-col lg:flex-row items-center gap-16 relative z-10">
+        <div className="relative z-10 flex flex-col items-center gap-16 lg:flex-row">
           <motion.div
             className="w-full lg:w-1/2"
             initial={{ opacity: 0, x: -20 }}
@@ -749,12 +653,12 @@ const HomePage: React.FC = () => {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 font-heading">
+            <h2 className="mb-8 text-4xl font-bold text-white md:text-5xl font-heading">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
                 About Us
               </span>
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8"></div>
+            <div className="w-32 h-1 mb-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
 
             <div className="space-y-6 text-lg text-gray-300">
               <p>
@@ -780,7 +684,7 @@ const HomePage: React.FC = () => {
               <p className="text-xl font-semibold text-white">
                 Our Philosophy:
               </p>
-              <ul className="list-disc pl-6 space-y-2">
+              <ul className="pl-6 space-y-2 list-disc">
                 <li>
                   Founded on the principles of trust, quality, and affordability
                 </li>
@@ -796,9 +700,7 @@ const HomePage: React.FC = () => {
             <div className="mt-10">
               <a href="#services">
                 <Button
-                  className="bg-gradient-to-r from-blue-500 to-purple-500 text-white
-                                        hover:from-blue-600 hover:to-purple-600 transition-all duration-300
-                                        shadow-lg hover:shadow-xl px-8 py-4 rounded-full font-semibold"
+                  className="px-8 py-4 font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 hover:shadow-xl"
                   onClick={(e) => {
                     e.preventDefault();
                     const targetElement = document.getElementById("services");
@@ -827,10 +729,10 @@ const HomePage: React.FC = () => {
           >
             <div className="relative group">
               {/* Glowing border effect */}
-              <div className="absolute inset-0 rounded-2xl bg-white/5 border border-white/10 group-hover:border-white/20 transition-all duration-500"></div>
+              <div className="absolute inset-0 transition-all duration-500 border rounded-2xl bg-white/5 border-white/10 group-hover:border-white/20"></div>
 
               {/* Main card content */}
-              <div className="relative bg-gray-900/80 backdrop-blur-xl rounded-2xl p-8 shadow-2xl">
+              <div className="relative p-8 shadow-2xl bg-gray-900/80 backdrop-blur-xl rounded-2xl">
                 <div className="flex items-center gap-3 mb-8">
                   <div className="p-3 bg-blue-500/20 rounded-xl">
                     <Zap className="w-6 h-6 text-blue-400" />
@@ -843,7 +745,7 @@ const HomePage: React.FC = () => {
                 <div className="space-y-8">
                   <motion.div
                     whileHover={{ scale: 1.02 }}
-                    className="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-all duration-300"
+                    className="flex items-start gap-4 p-4 transition-all duration-300 rounded-xl hover:bg-white/5"
                   >
                     <div className="p-3 bg-blue-500/20 rounded-xl">
                       <Zap className="w-5 h-5 text-blue-400" />
@@ -852,7 +754,7 @@ const HomePage: React.FC = () => {
                       <h4 className="text-xl font-semibold text-white">
                         Unwavering Commitment to Quality
                       </h4>
-                      <p className="text-gray-300 mt-2">
+                      <p className="mt-2 text-gray-300">
                         We go above and beyond to deliver software that exceeds
                         your expectations.
                       </p>
@@ -861,7 +763,7 @@ const HomePage: React.FC = () => {
 
                   <motion.div
                     whileHover={{ scale: 1.02 }}
-                    className="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-all duration-300"
+                    className="flex items-start gap-4 p-4 transition-all duration-300 rounded-xl hover:bg-white/5"
                   >
                     <div className="p-3 bg-purple-500/20 rounded-xl">
                       <BrainCircuit className="w-5 h-5 text-purple-400" />
@@ -870,7 +772,7 @@ const HomePage: React.FC = () => {
                       <h4 className="text-xl font-semibold text-white">
                         Affordable Excellence
                       </h4>
-                      <p className="text-gray-300 mt-2">
+                      <p className="mt-2 text-gray-300">
                         High-quality software doesn't have to break the bank. We
                         offer competitive pricing without compromising quality.
                       </p>
@@ -879,7 +781,7 @@ const HomePage: React.FC = () => {
 
                   <motion.div
                     whileHover={{ scale: 1.02 }}
-                    className="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-all duration-300"
+                    className="flex items-start gap-4 p-4 transition-all duration-300 rounded-xl hover:bg-white/5"
                   >
                     <div className="p-3 bg-pink-500/20 rounded-xl">
                       <Gem className="w-5 h-5 text-pink-400" />
@@ -888,7 +790,7 @@ const HomePage: React.FC = () => {
                       <h4 className="text-xl font-semibold text-white">
                         Local Expertise, Global Standards
                       </h4>
-                      <p className="text-gray-300 mt-2">
+                      <p className="mt-2 text-gray-300">
                         We understand unique market challenges and apply global
                         best practices to deliver impactful solutions.
                       </p>
@@ -897,7 +799,7 @@ const HomePage: React.FC = () => {
 
                   <motion.div
                     whileHover={{ scale: 1.02 }}
-                    className="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-all duration-300"
+                    className="flex items-start gap-4 p-4 transition-all duration-300 rounded-xl hover:bg-white/5"
                   >
                     <div className="p-3 bg-blue-500/20 rounded-xl">
                       <Users className="w-5 h-5 text-blue-400" />
@@ -906,7 +808,7 @@ const HomePage: React.FC = () => {
                       <h4 className="text-xl font-semibold text-white">
                         Dedicated Support
                       </h4>
-                      <p className="text-gray-300 mt-2">
+                      <p className="mt-2 text-gray-300">
                         We're more than just developers; we're your partners. We
                         provide ongoing support to ensure your software meets
                         evolving needs.
@@ -923,7 +825,7 @@ const HomePage: React.FC = () => {
       {/* Services Section */}
       <section
         id="services"
-        className="container mx-auto px-6 lg:px-8 py-24 relative overflow-hidden"
+        className="container relative px-6 py-24 mx-auto overflow-hidden lg:px-8"
       >
         <FloatingSVGGroup
           elements={[
@@ -965,7 +867,7 @@ const HomePage: React.FC = () => {
       {/* Products Section */}
       <section
         id="products"
-        className="container mx-auto px-6 lg:px-8 py-24 relative overflow-hidden"
+        className="container relative px-6 py-24 mx-auto overflow-hidden lg:px-8"
       >
         <div className="relative">
           <FloatingSVGGroup
@@ -995,12 +897,12 @@ const HomePage: React.FC = () => {
           />
         </div>
 
-        <h2 className="text-4xl font-bold text-center text-white mb-16 relative font-heading">
+        <h2 className="relative mb-16 text-4xl font-bold text-center text-white font-heading">
           Our Products
           <div className="absolute bottom-[-16px] left-1/2 transform -translate-x-1/2 w-32 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 relative">
+        <div className="relative grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
           {products.map((product, index) => (
             <div key={index} className="relative">
               <ProductCard product={product} />
@@ -1009,36 +911,36 @@ const HomePage: React.FC = () => {
         </div>
 
         {/* Open Source Section */}
-        <div className="mt-32 relative z-0">
+        <div className="relative z-0 mt-32">
           <motion.div
             variants={fadeInVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="mb-16 text-center"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
               KoshiLabs <span className="text-pink-400">❤️</span> Open Source
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            <p className="max-w-2xl mx-auto text-lg text-gray-400">
               We believe in giving back to the community. Check out our open
               source projects that help developers worldwide.
             </p>
-            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-8 rounded-full" />
+            <div className="w-20 h-1 mx-auto mt-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             <motion.div
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="relative overflow-hidden bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl"
+              className="relative overflow-hidden border shadow-xl bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border-white/10"
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-              <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl"></div>
-              <div className="absolute -top-12 -left-12 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute w-48 h-48 rounded-full -bottom-12 -right-12 bg-purple-500/10 blur-3xl"></div>
+              <div className="absolute w-48 h-48 rounded-full -top-12 -left-12 bg-blue-500/10 blur-3xl"></div>
 
               <div className="p-8">
                 <div className="flex items-center gap-4 mb-6">
@@ -1054,7 +956,7 @@ const HomePage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                <p className="mb-6 text-lg leading-relaxed text-gray-300">
                   A high-performance Nepali Date struct that closely resembles
                   the DateOnly struct in .NET, featuring smart date parsing,
                   fiscal year operations, and comprehensive serialization
@@ -1064,7 +966,7 @@ const HomePage: React.FC = () => {
                   href="https://github.com/TheCrossLegCoder/NepDate"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                  className="inline-flex items-center gap-2 text-blue-400 transition-colors hover:text-blue-300"
                 >
                   View on GitHub
                   <svg
@@ -1084,11 +986,11 @@ const HomePage: React.FC = () => {
               whileInView="visible"
               viewport={{ once: true }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="relative overflow-hidden bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl"
+              className="relative overflow-hidden border shadow-xl bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border-white/10"
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-              <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl"></div>
-              <div className="absolute -top-12 -left-12 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute w-48 h-48 rounded-full -bottom-12 -right-12 bg-purple-500/10 blur-3xl"></div>
+              <div className="absolute w-48 h-48 rounded-full -top-12 -left-12 bg-blue-500/10 blur-3xl"></div>
 
               <div className="p-8">
                 <div className="flex items-center gap-4 mb-6">
@@ -1102,7 +1004,7 @@ const HomePage: React.FC = () => {
                     <p className="text-gray-400">Database Migration Tool</p>
                   </div>
                 </div>
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                <p className="mb-6 text-lg leading-relaxed text-gray-300">
                   A powerful tool for migrating PostgreSQL databases to
                   Microsoft SQL Server, featuring schema conversion, data
                   migration, and comprehensive error handling.
@@ -1111,7 +1013,7 @@ const HomePage: React.FC = () => {
                   href="https://github.com/sanamhub/postgresql-to-mssql"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                  className="inline-flex items-center gap-2 text-blue-400 transition-colors hover:text-blue-300"
                 >
                   View on GitHub
                   <svg
@@ -1131,11 +1033,11 @@ const HomePage: React.FC = () => {
               whileInView="visible"
               viewport={{ once: true }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="relative overflow-hidden bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl"
+              className="relative overflow-hidden border shadow-xl bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border-white/10"
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-              <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl"></div>
-              <div className="absolute -top-12 -left-12 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute w-48 h-48 rounded-full -bottom-12 -right-12 bg-purple-500/10 blur-3xl"></div>
+              <div className="absolute w-48 h-48 rounded-full -top-12 -left-12 bg-blue-500/10 blur-3xl"></div>
 
               <div className="p-8">
                 <div className="flex items-center gap-4 mb-6">
@@ -1149,7 +1051,7 @@ const HomePage: React.FC = () => {
                     <p className="text-gray-400">Object Mapping Library</p>
                   </div>
                 </div>
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                <p className="mb-6 text-lg leading-relaxed text-gray-300">
                   A lightweight and efficient object mapping library for .NET,
                   designed to simplify the process of mapping between different
                   object types with minimal configuration.
@@ -1158,7 +1060,7 @@ const HomePage: React.FC = () => {
                   href="https://github.com/sanamhub/DotNetMapper"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                  className="inline-flex items-center gap-2 text-blue-400 transition-colors hover:text-blue-300"
                 >
                   View on GitHub
                   <svg
@@ -1178,11 +1080,11 @@ const HomePage: React.FC = () => {
               whileInView="visible"
               viewport={{ once: true }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="relative overflow-hidden bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl"
+              className="relative overflow-hidden border shadow-xl bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border-white/10"
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-              <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl"></div>
-              <div className="absolute -top-12 -left-12 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute w-48 h-48 rounded-full -bottom-12 -right-12 bg-purple-500/10 blur-3xl"></div>
+              <div className="absolute w-48 h-48 rounded-full -top-12 -left-12 bg-blue-500/10 blur-3xl"></div>
 
               <div className="p-8">
                 <div className="flex items-center gap-4 mb-6">
@@ -1198,7 +1100,7 @@ const HomePage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                <p className="mb-6 text-lg leading-relaxed text-gray-300">
                   A secure and customizable password generator that helps create
                   strong, unique passwords with various complexity options and
                   patterns.
@@ -1207,7 +1109,7 @@ const HomePage: React.FC = () => {
                   href="https://github.com/sanamhub/password-generator"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                  className="inline-flex items-center gap-2 text-blue-400 transition-colors hover:text-blue-300"
                 >
                   View on GitHub
                   <svg
@@ -1227,7 +1129,7 @@ const HomePage: React.FC = () => {
       {/* Team Section */}
       <section
         id="team"
-        className="container mx-auto px-6 lg:px-8 py-36 relative overflow-hidden"
+        className="container relative px-6 mx-auto overflow-hidden lg:px-8 py-36"
       >
         <FloatingSVGGroup
           elements={[
@@ -1253,20 +1155,20 @@ const HomePage: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-20 relative z-0"
+          className="relative z-0 mb-20 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 relative z-10 font-heading inline-block">
+          <h2 className="relative z-10 inline-block mb-6 text-4xl font-bold text-white md:text-5xl font-heading">
             Our Team
           </h2>
-          <div className="w-32 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto"></div>
-          <p className="mt-8 text-xl text-gray-300 max-w-3xl mx-auto">
+          <div className="w-32 h-2 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
+          <p className="max-w-3xl mx-auto mt-8 text-xl text-gray-300">
             Meet the experts behind Koshi Labs. With over 9+ years of
             experience, our team is passionate about creating software solutions
             that exceed expectations.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-0">
+        <div className="relative z-0 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {teamMembers.map((member) => (
             <TeamMemberCard key={member.name} member={member} />
           ))}
@@ -1274,8 +1176,8 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Testimonials */}
-      <section id="testimonials" className="py-24 relative overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-8 relative z-0">
+      <section id="testimonials" className="relative py-24 overflow-hidden">
+        <div className="container relative z-0 px-6 mx-auto lg:px-8">
           <FloatingSVGGroup
             elements={[
               {
@@ -1300,18 +1202,18 @@ const HomePage: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-center mb-16 relative z-0"
+            className="relative z-0 mb-16 text-center"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
               What Our <span className="text-blue-400">Clients Say</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            <p className="max-w-2xl mx-auto text-lg text-gray-400">
               Hear from businesses that have trusted us with their projects.
             </p>
-            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-8 rounded-full" />
+            <div className="w-20 h-1 mx-auto mt-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 relative z-0">
+          <div className="relative z-0 grid grid-cols-1 gap-8 mt-16 md:grid-cols-3">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.name}
@@ -1320,22 +1222,22 @@ const HomePage: React.FC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="relative overflow-hidden bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl"
+                className="relative overflow-hidden border shadow-xl bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border-white/10"
               >
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl"></div>
-                <div className="absolute -top-12 -left-12 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute w-48 h-48 rounded-full -bottom-12 -right-12 bg-purple-500/10 blur-3xl"></div>
+                <div className="absolute w-48 h-48 rounded-full -top-12 -left-12 bg-blue-500/10 blur-3xl"></div>
 
                 <div className="p-8">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 to-blue-500/30 rounded-full blur-md"></div>
-                      <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-white/10">
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/30 to-blue-500/30 blur-md"></div>
+                      <div className="relative w-16 h-16 overflow-hidden border-2 rounded-full border-white/10">
                         <img
                           src={testimonial.image}
                           alt={testimonial.name}
                           loading="lazy"
-                          className="w-full h-full object-cover"
+                          className="object-cover w-full h-full"
                         />
                       </div>
                     </div>
@@ -1346,7 +1248,7 @@ const HomePage: React.FC = () => {
                       <p className="text-gray-400">{testimonial.company}</p>
                     </div>
                   </div>
-                  <p className="text-gray-300 text-lg leading-relaxed">
+                  <p className="text-lg leading-relaxed text-gray-300">
                     {testimonial.quote}
                   </p>
                 </div>
@@ -1361,7 +1263,7 @@ const HomePage: React.FC = () => {
         id="faq"
         className="bg-gray-950/50 backdrop-blur-md py-24 rounded-b-[4rem] border-b border-white/10 relative overflow-hidden"
       >
-        <div className="container mx-auto px-6 lg:px-8">
+        <div className="container px-6 mx-auto lg:px-8">
           <FloatingSVGGroup
             elements={[
               {
@@ -1386,15 +1288,15 @@ const HomePage: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="mb-16 text-center"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
               Frequently <span className="text-blue-400">Asked Questions</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            <p className="max-w-2xl mx-auto text-lg text-gray-400">
               Find answers to common questions about our services and process.
             </p>
-            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-8 rounded-full" />
+            <div className="w-20 h-1 mx-auto mt-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
@@ -1412,8 +1314,8 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 relative overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-8">
+      <section id="contact" className="relative py-24 overflow-hidden">
+        <div className="container px-6 mx-auto lg:px-8">
           <FloatingSVGGroup
             elements={[
               {
@@ -1438,19 +1340,19 @@ const HomePage: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-center mb-20"
+            className="mb-20 text-center"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-10">
+            <h2 className="mb-10 text-3xl font-bold text-white md:text-5xl">
               Let's<span className="text-blue-400"> Work Together</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg mb-10">
+            <p className="max-w-2xl mx-auto mb-10 text-lg text-gray-400">
               Ready to start your next project? Reach out to us to discuss your
               needs and how we can help bring your vision to life.
             </p>
-            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full" />
+            <div className="w-20 h-1 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
             <div>
               <ContactInfo />
             </div>
@@ -1473,7 +1375,7 @@ const HomePage: React.FC = () => {
               duration: 60,
               ease: "linear",
             }}
-            className="whitespace-nowrap h-full flex items-center"
+            className="flex items-center h-full whitespace-nowrap"
           >
             {Array.from({ length: 8 }).map((_, i) => (
               <span
@@ -1506,17 +1408,17 @@ const HomePage: React.FC = () => {
           maxElements={2}
         />
 
-        <div className="container mx-auto px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+        <div className="container relative z-10 px-6 mx-auto lg:px-8">
+          <div className="grid items-start grid-cols-1 gap-12 md:grid-cols-3">
             {/* KoshiLabs Text */}
             <div className="text-center md:text-left">
               <motion.div
-                className="flex items-center justify-center md:justify-start mb-4"
+                className="flex items-center justify-center mb-4 md:justify-start"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
                 <motion.span
-                  className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 font-heading tracking-tighter inline-block relative"
+                  className="relative inline-block text-4xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-heading"
                   animate={{
                     textShadow: [
                       "0 0 5px rgba(96, 165, 250, 0)",
@@ -1539,19 +1441,19 @@ const HomePage: React.FC = () => {
                   />
                 </motion.span>
               </motion.div>
-              <p className="mt-2 text-gray-400 max-w-xs">
+              <p className="max-w-xs mt-2 text-gray-400">
                 Delivering innovative software solutions and services to
                 businesses worldwide.
               </p>
 
               <motion.div
-                className="flex justify-center md:justify-start space-x-6 mt-6"
+                className="flex justify-center mt-6 space-x-6 md:justify-start"
                 initial={{ opacity: 0.7 }}
                 whileHover={{ opacity: 1 }}
               >
                 <motion.a
                   href="https://www.facebook.com/koshilabs"
-                  className="text-gray-400 hover:text-blue-400 transition-colors"
+                  className="text-gray-400 transition-colors hover:text-blue-400"
                   whileHover={{ y: -3, scale: 1.2 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   aria-label="KoshiLabs Facebook page"
@@ -1560,7 +1462,7 @@ const HomePage: React.FC = () => {
                 </motion.a>
                 <motion.a
                   href="https://x.com/koshilabs"
-                  className="text-gray-400 hover:text-blue-400 transition-colors"
+                  className="text-gray-400 transition-colors hover:text-blue-400"
                   whileHover={{ y: -3, scale: 1.2 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   aria-label="KoshiLabs X page"
@@ -1569,7 +1471,7 @@ const HomePage: React.FC = () => {
                 </motion.a>
                 <motion.a
                   href="https://www.linkedin.com/company/koshilabs"
-                  className="text-gray-400 hover:text-blue-400 transition-colors"
+                  className="text-gray-400 transition-colors hover:text-blue-400"
                   whileHover={{ y: -3, scale: 1.2 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   aria-label="KoshiLabs LinkedIn page"
@@ -1579,7 +1481,7 @@ const HomePage: React.FC = () => {
               </motion.div>
 
               <motion.div
-                className="text-gray-400 text-sm mt-6"
+                className="mt-6 text-sm text-gray-400"
                 whileHover={{ color: "#60A5FA" }}
               >
                 © 2025 KoshiLabs. All rights reserved.
@@ -1588,7 +1490,7 @@ const HomePage: React.FC = () => {
 
             {/* Quick Links */}
             <div className="text-center md:text-left">
-              <h4 className="text-xl font-semibold text-white mb-6">
+              <h4 className="mb-6 text-xl font-semibold text-white">
                 Quick Links
               </h4>
               <div className="grid grid-cols-2 gap-y-3 gap-x-6">
@@ -1605,7 +1507,7 @@ const HomePage: React.FC = () => {
                   <motion.a
                     key={index}
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-gray-400 transition-colors hover:text-white"
                     whileHover={{ x: 5, color: "#60A5FA" }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
@@ -1617,7 +1519,7 @@ const HomePage: React.FC = () => {
 
             {/* Contact & Copyright */}
             <div className="text-center md:text-right">
-              <h4 className="text-xl font-semibold text-white mb-6">
+              <h4 className="mb-6 text-xl font-semibold text-white">
                 Contact Information
               </h4>
               <motion.div
@@ -1626,21 +1528,21 @@ const HomePage: React.FC = () => {
                 initial={{ opacity: 0.9 }}
               >
                 <motion.div
-                  className="flex items-center justify-center md:justify-end gap-3"
+                  className="flex items-center justify-center gap-3 md:justify-end"
                   whileHover={{ x: -5, color: "#60A5FA" }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <div className="p-2 bg-blue-500/10 rounded-full">
+                  <div className="p-2 rounded-full bg-blue-500/10">
                     <MapPin className="w-5 h-5 text-blue-400" />
                   </div>
                   <span>Birtamod, Koshi Province, Nepal</span>
                 </motion.div>
                 <motion.div
-                  className="flex items-center justify-center md:justify-end gap-3"
+                  className="flex items-center justify-center gap-3 md:justify-end"
                   whileHover={{ x: -5, color: "#60A5FA" }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <div className="p-2 bg-blue-500/10 rounded-full">
+                  <div className="p-2 rounded-full bg-blue-500/10">
                     <Phone className="w-5 h-5 text-blue-400" />
                   </div>
                   <span>
@@ -1653,11 +1555,11 @@ const HomePage: React.FC = () => {
                   </span>
                 </motion.div>
                 <motion.div
-                  className="flex items-center justify-center md:justify-end gap-3"
+                  className="flex items-center justify-center gap-3 md:justify-end"
                   whileHover={{ x: -5, color: "#60A5FA" }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <div className="p-2 bg-blue-500/10 rounded-full">
+                  <div className="p-2 rounded-full bg-blue-500/10">
                     <Mail className="w-5 h-5 text-blue-400" />
                   </div>
                   <span>
