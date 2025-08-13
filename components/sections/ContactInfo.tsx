@@ -12,7 +12,7 @@ const ContactInfo = () => {
       viewport={{ once: true }}
       className="space-y-8 text-gray-300"
     >
-      <h3 className="pb-4 mb-6 text-2xl font-semibold text-white border-b border-white/10">
+      <h3 className="pb-4 mb-6 text-2xl font-semibold text-center text-white border-b border-white/10">
         Contact Information
       </h3>
       <motion.div 

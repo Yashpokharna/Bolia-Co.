@@ -1108,7 +1108,7 @@ const HomePage: React.FC = () => {
           </motion.div>
 
           {/* Contact Info & Form */}
-          <div className="grid items-start grid-cols-1 gap-16 md:grid-cols-2">
+          <div className="flex items-center justify-center">
             {/* Left Column: Contact Info */}
             <motion.div
               variants={fadeInVariants}
@@ -1121,17 +1121,17 @@ const HomePage: React.FC = () => {
               <ContactInfo />
             </motion.div>
 
-            {/* Right Column: Contact Form */}
-            <motion.div
+            {/* /* Right Column: Contact Form */}
+            {/* <motion.div
               variants={fadeInVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
               className="w-full max-w-md p-8 mx-auto shadow-lg md:mx-0 bg-gray-800/70 backdrop-blur-md rounded-2xl"
-            >
-              <ContactForm />
-            </motion.div>
+            > */}
+              {/* <ContactForm /> */}
+            {/* </motion.div> */} 
           </div>
         </div>
       </section>
@@ -1169,8 +1169,8 @@ const HomePage: React.FC = () => {
         />
 
         {/* Footer content */}
-        <div className="container relative z-10 px-6 mx-auto lg:px-8">
-          <div className="grid items-start grid-cols-1 gap-12 md:grid-cols-3">
+        <div className="container relative z-10 items-center justify-center px-6 mx-auto text-center lg:px-8">
+          <div className="grid items-start grid-cols-1 gap-16 md:grid-cols-2">
 
             {/* Branding & Socials */}
             <div className="text-center md:text-left">
@@ -1180,12 +1180,12 @@ const HomePage: React.FC = () => {
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
                 <motion.span
-                  className="relative inline-block text-4xl font-bold tracking-tighter text-transparent cursor-pointer bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-heading"
+                  className="relative inline-block text-4xl font-bold tracking-tighter text-center text-transparent cursor-pointer bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-heading"
                 >
                   Bolia<span className="font-light">&Co.</span>
                 </motion.span>
               </motion.div>
-              <p className="max-w-xs mt-2 text-gray-400">
+              <p className="max-w-xs mt-2 text-center text-gray-400 md:text-start">
                 Providing professional CA, taxation, and business advisory services with dedication and integrity.
               </p>
               <motion.div className="flex justify-center mt-6 space-x-6 md:justify-start">
@@ -1224,7 +1224,7 @@ const HomePage: React.FC = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="text-center md:text-right">
+            {/* <div className="text-center md:text-right">
               <h4 className="mb-6 text-xl font-semibold text-white">Contact Information</h4>
               <motion.div className="space-y-5 text-gray-400">
                 <motion.div className="flex items-center justify-center gap-3 md:justify-end" whileHover={{ x: -5, color: "#60A5FA" }}>
@@ -1240,7 +1240,7 @@ const HomePage: React.FC = () => {
                   <span><a href="mailto:contact@boliaco.com">associatesbolia@gmail.com</a></span>
                 </motion.div>
               </motion.div>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
