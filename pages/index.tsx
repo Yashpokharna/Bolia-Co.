@@ -4,6 +4,7 @@ import Head from "next/head";
 import Script from "next/script";
 import dynamic from "next/dynamic";
 import { useRef } from "react";
+import { Calculator, Building, Gavel } from "lucide-react";
 import {
   Code2,
   Laptop2,
@@ -155,159 +156,75 @@ const products = [
 
 const services = [
   {
-    title: "Development",
+    title: "Taxation & Compliance",
     icon: <Code2 className="w-12 h-12 mb-4 text-blue-400" />,
     description:
-      "Crafting bespoke software solutions to meet your unique business needs. From concept to deployment, we ensure excellence.",
-    detailedDescription: `Our software development service covers the entire development lifecycle, from ideation to deployment and maintenance.
+      "Expert guidance on tax planning, filing, and compliance for businesses and individuals, ensuring peace of mind and adherence to regulations.",
+    detailedDescription: `Our Taxation & Compliance service helps businesses and individuals stay fully compliant with all applicable laws and regulations.
       <br/><br/>
       <strong>What We Offer:</strong>
       <ul class="list-disc pl-5 space-y-2 mt-3 mb-4">
-        <li>Custom software development tailored to your specific requirements</li>
-        <li>Web application development using modern frameworks and technologies</li>
-        <li>Mobile app development for iOS and Android platforms</li>
-        <li>Legacy system modernization and API integration</li>
-        <li>DevOps implementation and CI/CD pipeline setup</li>
+        <li>Corporate and personal tax planning and filing</li>
+        <li>GST, VAT, and other indirect tax compliance</li>
+        <li>Tax advisory for business structuring and transactions</li>
+        <li>Representation and support during tax audits</li>
+        <li>Regulatory compliance and reporting</li>
       </ul>
-      We follow industry best practices and agile methodologies to deliver high-quality software solutions that drive business growth and efficiency.`,
+      We ensure your finances and business operations remain compliant while optimizing tax efficiency.`,
   },
   {
-    title: "Modernization",
+    title: "Audit & Assurance",
     icon: <Rocket className="w-12 h-12 mb-4 text-indigo-400" />,
     description:
-      "Transform your legacy systems into modern, scalable solutions that future-proof your business and increase operational efficiency.",
-    detailedDescription: `Our Modernization service focuses on transforming outdated systems and processes to meet modern business requirements.
+      "Providing statutory, internal, and operational audits to ensure transparency, accuracy, and reliability of financial reporting.",
+    detailedDescription: `Our Audit & Assurance service helps organizations maintain financial integrity and stakeholder confidence.
       <br/><br/>
       <strong>What We Offer:</strong>
       <ul class="list-disc pl-5 space-y-2 mt-3 mb-4">
-        <li>Legacy system assessment and migration planning</li>
-        <li>Monolith to microservices architecture transformation</li>
-        <li>Cloud migration and infrastructure modernization</li>
-        <li>Tech stack upgrades and code refactoring</li>
-        <li>UI/UX redesign and modern interface implementation</li>
+        <li>Statutory audits for compliance with regulations</li>
+        <li>Internal audits for operational efficiency and risk management</li>
+        <li>Financial statement review and reporting</li>
+        <li>Fraud detection and investigation support</li>
+        <li>Advisory on internal controls and process improvement</li>
       </ul>
-      We help businesses modernize their software systems while minimizing disruption, preserving valuable business logic, and ensuring continuity during the transition.`,
+      We deliver audits that help clients make informed decisions with confidence.`,
   },
   {
-    title: "Performance",
+    title: "Accounting & Advisory",
     icon: <TrendingUp className="w-12 h-12 mb-4 text-green-400" />,
     description:
-      "Optimize your applications for peak performance by fine-tuning frontend, backend, and database functionality with cutting-edge technologies.",
-    detailedDescription: `Our Performance Optimization service ensures your software runs at maximum efficiency, providing the best possible user experience.
+      "Professional accounting services and financial advisory to streamline business operations and enhance decision-making.",
+    detailedDescription: `Our Accounting & Advisory service helps businesses manage their finances efficiently and plan for growth.
       <br/><br/>
       <strong>What We Offer:</strong>
       <ul class="list-disc pl-5 space-y-2 mt-3 mb-4">
-        <li>Comprehensive performance auditing and bottleneck identification</li>
-        <li>Frontend optimization for faster page loads and rendering</li>
-        <li>Backend code optimization and server-side performance tuning</li>
-        <li>Database query optimization and indexing strategies</li>
-        <li>Scalability planning and implementation for high-traffic applications</li>
+        <li>Bookkeeping and financial statement preparation</li>
+        <li>Management reporting and budgeting</li>
+        <li>Cash flow analysis and forecasting</li>
+        <li>Business process advisory</li>
+        <li>Financial planning and investment guidance</li>
       </ul>
-      We employ cutting-edge technologies and best practices to dramatically improve your application's speed, responsiveness, and resource efficiency.`,
+      We provide actionable insights and robust financial systems to support business success.`,
   },
   {
-    title: "Security",
+    title: "Corporate & Legal Services",
     icon: <Boxes className="w-12 h-12 mb-4 text-red-400" />,
     description:
-      "Protect your applications and data with comprehensive security solutions that identify vulnerabilities and implement industry-leading protection measures.",
-    detailedDescription: `Our Security service provides robust protection for your applications, infrastructure, and data assets through comprehensive assessment and implementation.
+      "Supporting corporate governance, legal compliance, and company secretarial requirements to keep your business running smoothly.",
+    detailedDescription: `Our Corporate & Legal Services help businesses navigate legal and regulatory obligations effectively.
       <br/><br/>
       <strong>What We Offer:</strong>
       <ul class="list-disc pl-5 space-y-2 mt-3 mb-4">
-        <li>Security assessment and vulnerability scanning</li>
-        <li>Secure coding practices and application hardening</li>
-        <li>Authentication and authorization system implementation</li>
-        <li>Data encryption and protection strategies</li>
-        <li>Security monitoring and incident response planning</li>
+        <li>Company formation and registration</li>
+        <li>Corporate governance advisory</li>
+        <li>Secretarial compliance and statutory filings</li>
+        <li>Contract review and legal documentation support</li>
+        <li>Advisory on mergers, acquisitions, and restructuring</li>
       </ul>
-      We ensure your systems are protected against evolving cyber threats through continuous security testing, remediation, and implementation of industry best practices.`,
-  },
-  {
-    title: "Database",
-    icon: <Database className="w-12 h-12 mb-4 text-purple-400" />,
-    description:
-      "Designing, implementing, and managing robust database systems for optimal performance and data integrity.",
-    detailedDescription: `Our Database Solutions cover everything from database design to optimization and ongoing administration.
-      <br/><br/>
-      <strong>What We Offer:</strong>
-      <ul class="list-disc pl-5 space-y-2 mt-3 mb-4">
-        <li>Database architecture and design</li>
-        <li>Data migration and integration services</li>
-        <li>Performance tuning and optimization</li>
-        <li>High availability and disaster recovery setup</li>
-        <li>Database security and compliance implementation</li>
-      </ul>
-      We work with both SQL and NoSQL technologies to create scalable, secure, and high-performance database solutions that meet your business requirements.`,
-  },
-  {
-    title: "AI & ML",
-    icon: <BrainCircuit className="w-12 h-12 mb-4 text-pink-400" />,
-    description:
-      "Developing cutting-edge AI-powered solutions to transform your business and gain a competitive edge.",
-    detailedDescription: `Our AI & ML Solutions help businesses leverage the power of artificial intelligence and machine learning to gain insights, automate processes, and create innovative products.
-      <br/><br/>
-      <strong>What We Offer:</strong>
-      <ul class="list-disc pl-5 space-y-2 mt-3 mb-4">
-        <li>Custom AI model development and training</li>
-        <li>Natural Language Processing (NLP) integration</li>
-        <li>Computer Vision solutions</li>
-        <li>Predictive analytics and forecasting models</li>
-        <li>AI strategy consulting and implementation roadmaps</li>
-      </ul>
-      We turn complex data into actionable intelligence, helping you make data-driven decisions that drive growth and innovation.`,
-  },
-  {
-    title: "Automation",
-    icon: <Search className="w-12 h-12 mb-4 text-yellow-400" />,
-    description:
-      "Ensuring the highest standards of quality through rigorous testing and automated quality assurance processes.",
-    detailedDescription: `Our QA & Automation service ensures your software meets the highest standards of reliability, performance, and user experience.
-      <br/><br/>
-      <strong>What We Offer:</strong>
-      <ul class="list-disc pl-5 space-y-2 mt-3 mb-4">
-        <li>Comprehensive test strategy and planning</li>
-        <li>Manual and automated testing implementation</li>
-        <li>Performance, security, and usability testing</li>
-        <li>Continuous integration testing</li>
-        <li>Test automation framework development</li>
-      </ul>
-      We implement robust testing methodologies and automation tools to identify issues early, reduce development costs, and deliver superior software quality.`,
-  },
-  {
-    title: "Consulting",
-    icon: <Briefcase className="w-12 h-12 mb-4 text-orange-400" />,
-    description:
-      "Providing expert guidance and strategic advice to drive your business growth and achieve your technology goals.",
-    detailedDescription: `Our IT consulting services provide expert guidance to help you navigate complex technological and business challenges.
-      <br/><br/>
-      <strong>What We Offer:</strong>
-      <ul class="list-disc pl-5 space-y-2 mt-3 mb-4">
-        <li>Technology strategy and roadmap development</li>
-        <li>Digital transformation planning and implementation</li>
-        <li>IT infrastructure assessment and optimization</li>
-        <li>Vendor selection and management</li>
-        <li>Technology risk assessment and security planning</li>
-      </ul>
-      Our experienced consultants work closely with your team to understand your business objectives and develop technology strategies that deliver tangible results.`,
-  },
-  {
-    title: "DevOps & Cloud",
-    icon: <Laptop2 className="w-12 h-12 mb-4 text-blue-500" />,
-    description:
-      "Enhancing the speed, efficiency, and scalability of your systems with modern DevOps practices and cloud solutions.",
-    detailedDescription: `Our DevOps & Cloud service helps identify and implement best practices for continuous integration, delivery, and cloud infrastructure.
-      <br/><br/>
-      <strong>What We Offer:</strong>
-      <ul class="list-disc pl-5 space-y-2 mt-3 mb-4">
-        <li>Cloud migration strategy and implementation</li>
-        <li>CI/CD pipeline development and optimization</li>
-        <li>Infrastructure as Code (IaC) implementation</li>
-        <li>Container orchestration with Kubernetes</li>
-        <li>Cloud cost optimization and management</li>
-      </ul>
-      We help organizations adopt DevOps culture and cloud technologies to increase deployment frequency, reduce time to market, and improve system reliability.`,
+      We ensure your business meets legal requirements while minimizing risks and maximizing efficiency.`,
   },
 ];
+
 
 const testimonials = [
   {
@@ -478,57 +395,58 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
-      <Head>
-        <title>Koshi Labs - Crafting Digital Excellence</title>
-        <meta
-          name="description"
-          content="Koshi Labs Pvt. Ltd. is a leading software development company in Birtamode, Jhapa, Nepal specializing in custom software development, AI solutions, web applications, mobile apps, and digital transformation services."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="keywords"
-          content="KoshiLabs, Koshi Labs, software development, Birtamode, Jhapa, Nepal, web development, mobile app development, database, performance optimization, AI solutions, custom software, digital transformation, IT services, consulting, Nepali tech company, software company Nepal"
-        />
-        <meta
-          property="og:title"
-          content="Koshi Labs Pvt. Ltd. - Premier Software Development Company in Nepal"
-        />
-        <meta
-          property="og:description"
-          content="Leading software development company in Birtamode, Jhapa, Nepal offering innovative solutions in web development, mobile apps, and AI services."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://koshilabs.com" />
-        <meta
-          property="og:image"
-          content="https://koshilabs.com/og-image.jpg"
-        />
-        <meta property="og:site_name" content="KoshiLabs" />
-        <meta property="og:locale" content="en_US" />
+  <div className="min-h-screen bg-white">
+    <Head>
+      <title>Bolia & Co. | Chartered Accountants</title>
+      <meta
+        name="description"
+        content="Bolia & Co. provides expert Chartered Accountancy services in Income Tax, GST, VAT & ST, TDS & TCS, Company Incorporation, Compliance, and Tax Litigation. We ensure efficient tax management and full statutory compliance for businesses and individuals."
+      />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta
+        name="keywords"
+        content="Bolia & Co., Chartered Accountants, Income Tax, GST, VAT, TDS, TCS, Company Incorporation, Compliance Services, Tax Litigation, CA firm, Tax advisory, Accounting services"
+      />
+      <meta
+        property="og:title"
+        content="Bolia & Co. | Professional Chartered Accountancy Services"
+      />
+      <meta
+        property="og:description"
+        content="Expert CA firm providing Income Tax, GST, VAT & ST, TDS & TCS, Company Incorporation, Compliance, and Tax Litigation services to businesses and individuals."
+      />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://boliaandco.com" />
+      <meta
+        property="og:image"
+        content="https://boliaandco.com/og-image.jpg"
+      />
+      <meta property="og:site_name" content="Bolia & Co." />
+      <meta property="og:locale" content="en_US" />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="KoshiLabs - Crafting Digital Excellence"
-        />
-        <meta
-          name="twitter:description"
-          content="Leading software development company in Birtamode, Jhapa, Nepal offering innovative solutions in web development, mobile apps, and AI services."
-        />
-        <meta
-          name="twitter:image"
-          content="https://koshilabs.com/og-image.jpg"
-        />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta
+        name="twitter:title"
+        content="Bolia & Co. | Trusted Chartered Accountants"
+      />
+      <meta
+        name="twitter:description"
+        content="Providing comprehensive CA services including Income Tax, GST, VAT & ST, TDS & TCS, Company Incorporation, Compliance, and Tax Litigation."
+      />
+      <meta
+        name="twitter:image"
+        content="https://boliaandco.com/og-image.jpg"
+      />
 
-        <meta name="geo.region" content="NP-P1" />
-        <meta name="geo.placename" content="Birtamode, Jhapa" />
-        <meta name="geo.position" content="26.6418;87.9927" />
-        <meta name="ICBM" content="26.6418, 87.9927" />
+      <meta name="geo.region" content="IN-PB" />
+      <meta name="geo.placename" content="Your City, State" />
+      <meta name="geo.position" content="00.0000;00.0000" />
+      <meta name="ICBM" content="00.0000, 00.0000" />
 
-        <link rel="canonical" href="https://koshilabs.com" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <link rel="canonical" href="https://boliaandco.com" />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+
 
       <Navbar />
 
@@ -587,7 +505,7 @@ const HomePage: React.FC = () => {
       <motion.a href="#contact" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
         <Button
           size="lg"
-          className="py-5 text-lg font-semibold text-white transition-all duration-300 bg-indigo-600 border-none rounded-full shadow-lg hover:bg-indigo-700 hover:shadow-xl px-9"
+          className="py-5 font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 hover:shadow-xl px-9"
         >
           <span className="flex items-center gap-2">
             Book a Consultation
@@ -601,9 +519,8 @@ const HomePage: React.FC = () => {
       <motion.a href="#services" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
   <Button
     size="lg"
-    variant="outline"
-    className="py-5 text-lg font-semibold text-indigo-600 transition-all duration-300 border-indigo-400 rounded-full px-9 hover:bg-indigo-600 hover:text-white hover:border-indigo-600"
-  >
+    className="py-5 font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 hover:shadow-xl px-9"
+    >
     View Services
   </Button>
 </motion.a>
@@ -612,651 +529,448 @@ const HomePage: React.FC = () => {
 </header>
 
 
+{/* About Us Section */}
+{/* About Us Section */}
+<section
+  id="about"
+  className="container relative px-6 mx-auto overflow-hidden bg-white lg:px-8 py-36"
+>
+  <FloatingSVGGroup
+    elements={[
+      {
+        icon: <Gem className="text-blue-300/40" />,
+        position: { top: "20%", right: "15%" },
+        size: "xl",
+        opacity: 0.8,
+        delay: 0.3,
+      },
+      {
+        icon: <Rocket className="text-blue-400/40" />,
+        position: { bottom: "15%", left: "15%" },
+        size: "lg",
+        opacity: 0.8,
+        delay: 0.7,
+      },
+      {
+        icon: <BrainCircuit className="text-purple-300/40" />,
+        position: { top: "40%", left: "25%" },
+        size: "md",
+        opacity: 0.7,
+        delay: 0.5,
+      },
+    ]}
+  />
 
+  <div className="relative z-10 flex flex-col items-center gap-16 lg:flex-row">
+    <motion.div
+      className="w-full lg:w-1/2"
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="mb-8 text-4xl font-bold text-gray-900 md:text-4xl font-heading">
+        <span className="bg-clip-text">
+          About Bolia & Co.
+        </span>
+      </h2>
+      <div className="w-32 h-1 mb-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
 
-      {/* About Us Section */}
-      <section
-        id="about"
-        className="container relative px-6 mx-auto overflow-hidden lg:px-8 py-36"
-      >
-        <FloatingSVGGroup
-          elements={[
-            {
-              icon: <Gem className="text-purple-400/90" />,
-              position: { top: "20%", right: "15%" },
-              size: "xl",
-              opacity: 0.8,
-              delay: 0.3,
-            },
-            {
-              icon: <Rocket className="text-blue-400/90" />,
-              position: { bottom: "15%", left: "15%" },
-              size: "lg",
-              opacity: 0.8,
-              delay: 0.7,
-            },
-            {
-              icon: <BrainCircuit className="text-pink-400/90" />,
-              position: { top: "40%", left: "25%" },
-              size: "md",
-              opacity: 0.7,
-              delay: 0.5,
-            },
-          ]}
-        />
+      <div className="space-y-6 text-lg text-gray-700">
+        <p>
+          Bolia & Co. is a professional chartered accountancy firm specializing in taxation, audit, accounting, and business compliance. We help businesses navigate complex financial regulations with confidence.
+        </p>
+        <p>
+          Our team of experienced chartered accountants provides accurate, reliable, and ethical advice tailored to your business needs, ensuring transparency and compliance at every step.
+        </p>
+        <p>
+          We are committed to building long-term client relationships, offering practical solutions, and supporting growth through informed financial decisions.
+        </p>
+        <p className="text-xl font-semibold text-gray-900">
+          Our Core Values:
+        </p>
+        <ul className="pl-6 space-y-2 text-gray-700 list-disc">
+          <li>Integrity and professionalism in all engagements</li>
+          <li>Transparent and client-focused solutions</li>
+          <li>Accuracy and attention to detail in financial reporting</li>
+          <li>Timely advice and proactive compliance support</li>
+          <li>Dedicated to helping clients grow and succeed</li>
+        </ul>
+      </div>
 
-        <div className="relative z-10 flex flex-col items-center gap-16 lg:flex-row">
-          <motion.div
-            className="w-full lg:w-1/2"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
+      <div className="mt-10">
+        <a href="#services">
+          <Button
+            className="px-8 py-4 font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 hover:shadow-xl"
+            onClick={(e) => {
+              e.preventDefault();
+              const targetElement = document.getElementById("services");
+              if (targetElement) {
+                const yOffset = -80;
+                const y =
+                  targetElement.getBoundingClientRect().top +
+                  window.pageYOffset +
+                  yOffset;
+                window.scrollTo({ top: y, behavior: "auto" });
+              }
+            }}
           >
-            <h2 className="mb-8 text-4xl font-bold text-white md:text-5xl font-heading">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                About Us
-              </span>
-            </h2>
-            <div className="w-32 h-1 mb-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
+            Explore Our Services
+          </Button>
+        </a>
+      </div>
+    </motion.div>
 
-            <div className="space-y-6 text-lg text-gray-300">
-              <p>
-                Koshi Labs was born from the shared vision of three friends,
-                each with over 9+ years of hands-on experience in software
-                development. We witnessed firsthand the need for reliable,
-                affordable, and high-quality software solutions, particularly in
-                Nepal.
-              </p>
-              <p>
-                Frustrated by the disconnect between client needs and the
-                solutions offered, we founded Koshi Labs to bridge that gap. Our
-                mission is simple: to build trust with our clients and deliver
-                software that not only meets their requirements but also exceeds
-                their expectations.
-              </p>
-              <p>
-                We are committed to providing exceptional support and fostering
-                long-term partnerships. We are passionate about leveraging
-                technology to drive positive change, both within Nepal and
-                beyond.
-              </p>
-              <p className="text-xl font-semibold text-white">
-                Our Philosophy:
-              </p>
-              <ul className="pl-6 space-y-2 list-disc">
-                <li>
-                  Founded on the principles of trust, quality, and affordability
-                </li>
-                <li>Transparency in every step of the development process</li>
-                <li>Small team of experts delivering big results</li>
-                <li>
-                  Leveraging AI tools where possible for enhanced efficiency
-                </li>
-                <li>Deep commitment to understanding client needs</li>
-              </ul>
+    <motion.div
+      className="w-full lg:w-1/2"
+      initial={{ opacity: 0, x: 20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7, delay: 0.2 }}
+      viewport={{ once: true }}
+    >
+      <div className="relative group">
+        <div className="absolute inset-0 transition-all duration-500 bg-white border border-gray-200 rounded-2xl group-hover:border-blue-300"></div>
+        <div className="relative p-8 bg-white shadow-lg rounded-2xl">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-3 bg-blue-100 rounded-xl">
+              <Zap className="w-6 h-6 text-blue-500" />
             </div>
+            <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+              Our Commitment
+            </h3>
+          </div>
 
-            <div className="mt-10">
-              <a href="#services">
-                <Button
-                  className="px-8 py-4 font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 hover:shadow-xl"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const targetElement = document.getElementById("services");
-                    if (targetElement) {
-                      const yOffset = -80;
-                      const y =
-                        targetElement.getBoundingClientRect().top +
-                        window.pageYOffset +
-                        yOffset;
-                      window.scrollTo({ top: y, behavior: "auto" });
-                    }
-                  }}
-                >
-                  Explore Our Services
-                </Button>
-              </a>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="w-full lg:w-1/2"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <div className="relative group">
-              {/* Glowing border effect */}
-              <div className="absolute inset-0 transition-all duration-500 border rounded-2xl bg-white/5 border-white/10 group-hover:border-white/20"></div>
-
-              {/* Main card content */}
-              <div className="relative p-8 shadow-2xl bg-gray-900/80 backdrop-blur-xl rounded-2xl">
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="p-3 bg-blue-500/20 rounded-xl">
-                    <Zap className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                    Why Choose Us?
-                  </h3>
-                </div>
-
-                <div className="space-y-8">
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="flex items-start gap-4 p-4 transition-all duration-300 rounded-xl hover:bg-white/5"
-                  >
-                    <div className="p-3 bg-blue-500/20 rounded-xl">
-                      <Zap className="w-5 h-5 text-blue-400" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-semibold text-white">
-                        Unwavering Commitment to Quality
-                      </h4>
-                      <p className="mt-2 text-gray-300">
-                        We go above and beyond to deliver software that exceeds
-                        your expectations.
-                      </p>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="flex items-start gap-4 p-4 transition-all duration-300 rounded-xl hover:bg-white/5"
-                  >
-                    <div className="p-3 bg-purple-500/20 rounded-xl">
-                      <BrainCircuit className="w-5 h-5 text-purple-400" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-semibold text-white">
-                        Affordable Excellence
-                      </h4>
-                      <p className="mt-2 text-gray-300">
-                        High-quality software doesn't have to break the bank. We
-                        offer competitive pricing without compromising quality.
-                      </p>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="flex items-start gap-4 p-4 transition-all duration-300 rounded-xl hover:bg-white/5"
-                  >
-                    <div className="p-3 bg-pink-500/20 rounded-xl">
-                      <Gem className="w-5 h-5 text-pink-400" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-semibold text-white">
-                        Local Expertise, Global Standards
-                      </h4>
-                      <p className="mt-2 text-gray-300">
-                        We understand unique market challenges and apply global
-                        best practices to deliver impactful solutions.
-                      </p>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="flex items-start gap-4 p-4 transition-all duration-300 rounded-xl hover:bg-white/5"
-                  >
-                    <div className="p-3 bg-blue-500/20 rounded-xl">
-                      <Users className="w-5 h-5 text-blue-400" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-semibold text-white">
-                        Dedicated Support
-                      </h4>
-                      <p className="mt-2 text-gray-300">
-                        We're more than just developers; we're your partners. We
-                        provide ongoing support to ensure your software meets
-                        evolving needs.
-                      </p>
-                    </div>
-                  </motion.div>
-                </div>
+          <div className="space-y-8">
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="flex items-start gap-4 p-4 transition-all duration-300 cursor-pointer rounded-xl hover:bg-blue-50"
+            >
+              <div className="p-3 bg-blue-100 rounded-xl">
+                <Zap className="w-5 h-5 text-blue-500" />
               </div>
-            </div>
-          </motion.div>
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900">
+                  Trusted Expertise
+                </h4>
+                <p className="mt-2 text-gray-700">
+                  Our team of chartered accountants delivers accurate, reliable, and ethical advice.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="flex items-start gap-4 p-4 transition-all duration-300 cursor-pointer rounded-xl hover:bg-purple-50"
+            >
+              <div className="p-3 bg-purple-100 rounded-xl">
+                <BrainCircuit className="w-5 h-5 text-purple-500" />
+              </div>
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900">
+                  Compliance & Accuracy
+                </h4>
+                <p className="mt-2 text-gray-700">
+                  We ensure your business meets all statutory requirements with precision and clarity.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="flex items-start gap-4 p-4 transition-all duration-300 cursor-pointer rounded-xl hover:bg-pink-50"
+            >
+              <div className="p-3 bg-pink-100 rounded-xl">
+                <Gem className="w-5 h-5 text-pink-500" />
+              </div>
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900">
+                  Client-Focused Solutions
+                </h4>
+                <p className="mt-2 text-gray-700">
+                  We provide practical advice tailored to your business, supporting growth and success.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="flex items-start gap-4 p-4 transition-all duration-300 cursor-pointer rounded-xl hover:bg-blue-50"
+            >
+              <div className="p-3 bg-blue-100 rounded-xl">
+                <Users className="w-5 h-5 text-blue-500" />
+              </div>
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900">
+                  Long-Term Partnership
+                </h4>
+                <p className="mt-2 text-gray-700">
+                  We build lasting relationships, offering ongoing support for your evolving business needs.
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </section>
+      </div>
+    </motion.div>
+  </div>
+</section>
+
+
+
 
       {/* Services Section */}
-      <section
-        id="services"
-        className="container relative px-6 py-24 mx-auto overflow-hidden lg:px-8"
+{/* Services Section */}
+<section
+  id="services"
+  className="container relative px-6 py-24 mx-auto overflow-hidden bg-white lg:px-8"
+>
+  {/* Floating SVGs */}
+  <FloatingSVGGroup
+    elements={[
+      {
+        icon: <Cpu className="text-blue-600/70" />,
+        position: { top: "10%", left: "5%" },
+        size: "xl",
+        opacity: 0.7,
+        delay: 0.5,
+      },
+      {
+        icon: <Code2 className="text-indigo-400/70" />,
+        position: { bottom: "20%", right: "5%" },
+        size: "lg",
+        opacity: 0.7,
+        delay: 0.9,
+      },
+      {
+        icon: <Layers3 className="text-green-500/70" />,
+        position: { bottom: "40%", left: "30%" },
+        size: "md",
+        opacity: 0.6,
+        delay: 1.3,
+      },
+    ]}
+  />
+
+  {/* Section Title */}
+  <h2 className="text-4xl font-bold text-center text-gray-900 mb-16 relative z-[1] font-heading">
+    Our Services
+    <div className="absolute bottom-[-16px] left-1/2 transform -translate-x-1/2 w-32 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+  </h2>
+
+  {/* Services Grid 2x2 */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-[1]">
+    {services.slice(0, 4).map((service, index) => (
+      <motion.div
+        key={index}
+        whileHover={{ scale: 1.02 }}
+        className="p-8 transition-all duration-300 bg-white border border-gray-200 shadow-lg cursor-pointer rounded-2xl hover:shadow-xl"
       >
-        <FloatingSVGGroup
-          elements={[
-            {
-              icon: <Cpu className="text-blue-400/80" />,
-              position: { top: "10%", left: "5%" },
-              size: "xl",
-              opacity: 0.7,
-              delay: 0.5,
-            },
-            {
-              icon: <Code2 className="text-purple-400/80" />,
-              position: { bottom: "20%", right: "5%" },
-              size: "lg",
-              opacity: 0.7,
-              delay: 0.9,
-            },
-            {
-              icon: <Layers3 className="text-green-400/80" />,
-              position: { bottom: "40%", left: "30%" },
-              size: "md",
-              opacity: 0.6,
-              delay: 1.3,
-            },
-          ]}
-        />
+        <div className="mb-4">{service.icon}</div>
+        <h3 className="mb-2 text-xl font-bold text-gray-900">{service.title}</h3>
+        <p className="text-gray-700">{service.description}</p>
+      </motion.div>
+    ))}
+  </div>
+</section>
 
-        <h2 className="text-4xl font-bold text-center text-white mb-16 relative z-[1] font-heading">
-          Our Services
-          <div className="absolute bottom-[-16px] left-1/2 transform -translate-x-1/2 w-32 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 relative z-[1]">
-          {services.map((service, index) => (
-            <ServiceCard key={index} service={service} />
-          ))}
-        </div>
-      </section>
 
-      {/* Products Section */}
-      <section
-        id="products"
-        className="container relative px-6 py-24 mx-auto overflow-hidden lg:px-8"
-      >
-        <div className="relative">
-          <FloatingSVGGroup
-            elements={[
-              {
-                icon: <Boxes className="text-orange-400/80" />,
-                position: { top: "15%", left: "5%" },
-                size: "lg",
-                opacity: 0.7,
-                delay: 0.8,
-              },
-              {
-                icon: <Database className="text-purple-400/80" />,
-                position: { bottom: "25%", right: "8%" },
-                size: "lg",
-                opacity: 0.7,
-                delay: 1.2,
-              },
-              {
-                icon: <Wand2 className="text-pink-400/80" />,
-                position: { top: "40%", right: "20%" },
-                size: "md",
-                opacity: 0.7,
-                delay: 0.6,
-              },
-            ]}
-          />
-        </div>
 
-        <h2 className="relative mb-16 text-4xl font-bold text-center text-white font-heading">
-          Our Products
-          <div className="absolute bottom-[-16px] left-1/2 transform -translate-x-1/2 w-32 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-        </h2>
+{/* Why Choose Us Section */}
+<section
+  id="why-choose-us"
+  className="container px-6 py-24 mx-auto bg-white lg:px-8"
+>
+  <h2 className="relative mb-16 text-4xl font-bold text-center text-gray-900 font-heading">
+    Why Choose Us?
+    <div className="absolute bottom-[-16px] left-1/2 transform -translate-x-1/2 w-32 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+  </h2>
 
-        <div className="relative grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((product, index) => (
-            <div key={index} className="relative">
-              <ProductCard product={product} />
-            </div>
-          ))}
-        </div>
+  <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+    {/* Card 1 */}
+    <div className="p-8 text-center transition-all border shadow-lg cursor-pointer rounded-2xl hover:shadow-xl ">
+      <div className="flex items-center justify-center mb-6">
+        <Calculator className="w-12 h-12 text-blue-500" />
+      </div>
+      <h3 className="mb-4 text-xl font-semibold text-gray-900">
+        Income Tax | GST | VAT & ST | TDS & TCS
+      </h3>
+      <p className="leading-relaxed text-gray-700">
+        Our team provides Income Tax, GST, VAT & ST and TDS & TCS services,
+        offering comprehensive solutions for registration, compliance,
+        advisory, and regulatory filings. Our expertise ensures efficient tax
+        management and full statutory compliance for businesses across sectors.
+      </p>
+    </div>
 
-        {/* Open Source Section */}
-        <div className="relative z-0 mt-32">
-          <motion.div
-            variants={fadeInVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
-              KoshiLabs <span className="text-pink-400">❤️</span> Open Source
-            </h2>
-            <p className="max-w-2xl mx-auto text-lg text-gray-400">
-              We believe in giving back to the community. Check out our open
-              source projects that help developers worldwide.
-            </p>
-            <div className="w-20 h-1 mx-auto mt-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
-          </motion.div>
+    {/* Card 2 */}
+    <div className="p-8 text-center transition-all border shadow-lg cursor-pointer rounded-2xl hover:shadow-xl">
+      <div className="flex items-center justify-center mb-6">
+        <Building className="w-12 h-12 text-green-500" />
+      </div>
+      <h3 className="mb-4 text-xl font-semibold text-gray-900">
+        Company Incorporation | Compliance Services
+      </h3>
+      <p className="leading-relaxed text-gray-700">
+        We provide end-to-end company incorporation services, including entity
+        structuring, regulatory approvals, and documentation support. Our
+        expertise covers domestic and foreign company setup, ensuring full
+        compliance with local laws and seamless business registration.
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <motion.div
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="relative overflow-hidden border shadow-xl bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border-white/10"
-            >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-              <div className="absolute w-48 h-48 rounded-full -bottom-12 -right-12 bg-purple-500/10 blur-3xl"></div>
-              <div className="absolute w-48 h-48 rounded-full -top-12 -left-12 bg-blue-500/10 blur-3xl"></div>
+    {/* Card 3 */}
+    <div className="p-8 transition-all border shadow-lg cursor-pointer rounded-2xl hover:shadow-xl">
+      <div className="flex items-center justify-center mb-6">
+        <Gavel className="w-12 h-12 text-purple-500" />
+      </div>
+      <h3 className="items-center mb-4 text-xl font-semibold text-center text-gray-900">
+        IT Appeals | IT Scrutiny | Tax Litigation Services
+      </h3>
+      <p className="leading-relaxed text-center text-gray-700">
+        We provide end-to-end tax litigation services, including
+        representation before tax authorities, appellate tribunals, and courts.
+        Our expertise spans income tax, GST, and international tax disputes,
+        with a focus on timely resolution and strategic advocacy.
+      </p>
+    </div>
+  </div>
+</section>
 
-              <div className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-blue-500/20 rounded-xl">
-                    <Code2 className="w-8 h-8 text-blue-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white">
-                      NepDate
-                    </h3>
-                    <p className="text-gray-400">
-                      Super-fast Nepali Date struct for .NET
-                    </p>
-                  </div>
-                </div>
-                <p className="mb-6 text-lg leading-relaxed text-gray-300">
-                  A high-performance Nepali Date struct that closely resembles
-                  the DateOnly struct in .NET, featuring smart date parsing,
-                  fiscal year operations, and comprehensive serialization
-                  support.
-                </p>
-                <a
-                  href="https://github.com/TheCrossLegCoder/NepDate"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-400 transition-colors hover:text-blue-300"
-                >
-                  View on GitHub
-                  <svg
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                  </svg>
-                </a>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="relative overflow-hidden border shadow-xl bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border-white/10"
-            >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-              <div className="absolute w-48 h-48 rounded-full -bottom-12 -right-12 bg-purple-500/10 blur-3xl"></div>
-              <div className="absolute w-48 h-48 rounded-full -top-12 -left-12 bg-blue-500/10 blur-3xl"></div>
-
-              <div className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-purple-500/20 rounded-xl">
-                    <Database className="w-8 h-8 text-purple-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white">
-                      PostgreSQL to MSSQL
-                    </h3>
-                    <p className="text-gray-400">Database Migration Tool</p>
-                  </div>
-                </div>
-                <p className="mb-6 text-lg leading-relaxed text-gray-300">
-                  A powerful tool for migrating PostgreSQL databases to
-                  Microsoft SQL Server, featuring schema conversion, data
-                  migration, and comprehensive error handling.
-                </p>
-                <a
-                  href="https://github.com/sanamhub/postgresql-to-mssql"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-400 transition-colors hover:text-blue-300"
-                >
-                  View on GitHub
-                  <svg
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                  </svg>
-                </a>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="relative overflow-hidden border shadow-xl bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border-white/10"
-            >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-              <div className="absolute w-48 h-48 rounded-full -bottom-12 -right-12 bg-purple-500/10 blur-3xl"></div>
-              <div className="absolute w-48 h-48 rounded-full -top-12 -left-12 bg-blue-500/10 blur-3xl"></div>
-
-              <div className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-pink-500/20 rounded-xl">
-                    <Wand2 className="w-8 h-8 text-pink-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white">
-                      DotNetMapper
-                    </h3>
-                    <p className="text-gray-400">Object Mapping Library</p>
-                  </div>
-                </div>
-                <p className="mb-6 text-lg leading-relaxed text-gray-300">
-                  A lightweight and efficient object mapping library for .NET,
-                  designed to simplify the process of mapping between different
-                  object types with minimal configuration.
-                </p>
-                <a
-                  href="https://github.com/sanamhub/DotNetMapper"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-400 transition-colors hover:text-blue-300"
-                >
-                  View on GitHub
-                  <svg
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                  </svg>
-                </a>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="relative overflow-hidden border shadow-xl bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border-white/10"
-            >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-              <div className="absolute w-48 h-48 rounded-full -bottom-12 -right-12 bg-purple-500/10 blur-3xl"></div>
-              <div className="absolute w-48 h-48 rounded-full -top-12 -left-12 bg-blue-500/10 blur-3xl"></div>
-
-              <div className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-green-500/20 rounded-xl">
-                    <Lock className="w-8 h-8 text-green-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white">
-                      Password Generator
-                    </h3>
-                    <p className="text-gray-400">
-                      Secure Password Creation Tool
-                    </p>
-                  </div>
-                </div>
-                <p className="mb-6 text-lg leading-relaxed text-gray-300">
-                  A secure and customizable password generator that helps create
-                  strong, unique passwords with various complexity options and
-                  patterns.
-                </p>
-                <a
-                  href="https://github.com/sanamhub/password-generator"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-400 transition-colors hover:text-blue-300"
-                >
-                  View on GitHub
-                  <svg
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                  </svg>
-                </a>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* Team Section */}
-      <section
-        id="team"
-        className="container relative px-6 mx-auto overflow-hidden lg:px-8 py-36"
-      >
-        <FloatingSVGGroup
-          elements={[
-            {
-              icon: <UserCircle2 className="text-pink-400/90" />,
-              position: { bottom: "10%", right: "5%" },
-              size: "xl",
-              opacity: 0.8,
-              delay: 0.3,
-            },
-            {
-              icon: <Users className="text-blue-400/90" />,
-              position: { top: "15%", left: "8%" },
-              size: "xl",
-              opacity: 0.8,
-              delay: 0.6,
-            },
-          ]}
-        />
+<section
+  id="team"
+  className="container relative px-6 mx-auto overflow-hidden bg-white lg:px-8 py-36"
+>
+  <FloatingSVGGroup
+    elements={[
+      {
+        icon: <UserCircle2 className="text-pink-400/50" />,
+        position: { bottom: "10%", right: "5%" },
+        size: "xl",
+        opacity: 0.5,
+        delay: 0.3,
+      },
+      {
+        icon: <Users className="text-blue-400/50" />,
+        position: { top: "15%", left: "8%" },
+        size: "xl",
+        opacity: 0.5,
+        delay: 0.6,
+      },
+    ]}
+  />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="relative z-0 mb-20 text-center"
-        >
-          <h2 className="relative z-10 inline-block mb-6 text-4xl font-bold text-white md:text-5xl font-heading">
-            Our Team
-          </h2>
-          <div className="w-32 h-2 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-          <p className="max-w-3xl mx-auto mt-8 text-xl text-gray-300">
-            Meet the experts behind Koshi Labs. With over 9+ years of
-            experience, our team is passionate about creating software solutions
-            that exceed expectations.
-          </p>
-        </motion.div>
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    viewport={{ once: true }}
+    className="relative z-0 mb-20 text-center"
+  >
+    <h2 className="relative z-10 inline-block mb-6 text-4xl font-bold text-gray-900 md:text-5xl font-heading">
+      Our Team
+    </h2>
+    <div className="w-32 h-2 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
+    <p className="max-w-3xl mx-auto mt-8 text-xl text-gray-700">
+      Meet the professionals behind our firm. With years of expertise in
+      Income Tax, GST, VAT, TDS, and corporate compliance, our team ensures
+      precise and strategic financial guidance for businesses and individuals.
+    </p>
+  </motion.div>
 
-        <div className="relative z-0 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-          {teamMembers.map((member) => (
-            <TeamMemberCard key={member.name} member={member} />
-          ))}
-        </div>
-      </section>
+  <div className="relative z-0 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+    {teamMembers.map((member) => (
+      <TeamMemberCard
+        key={member.name}
+        member={{
+          ...member,
+          // ensure text is visible on white background
+          role: member.role,
+          name: member.name,
+          image: member.image,
+          description: member.description,
+        }}
+      />
+    ))}
+  </div>
+</section>
+
 
       {/* Testimonials */}
-      <section id="testimonials" className="relative py-24 overflow-hidden">
-        <div className="container relative z-0 px-6 mx-auto lg:px-8">
-          <FloatingSVGGroup
-            elements={[
-              {
-                icon: <Users className="text-purple-400/80" />,
-                position: { top: "10%", right: "5%" },
-                size: "lg",
-                opacity: 0.7,
-                delay: 0.3,
-              },
-              {
-                icon: <Gem className="text-blue-400/80" />,
-                position: { bottom: "15%", left: "8%" },
-                size: "md",
-                opacity: 0.7,
-                delay: 0.5,
-              },
-            ]}
-          />
+<section id="testimonials" className="relative py-24 overflow-hidden bg-white">
+  <div className="container relative z-0 px-6 mx-auto lg:px-8">
+    <FloatingSVGGroup
+      elements={[
+        {
+          icon: <Users className="text-purple-400/30" />,
+          position: { top: "10%", right: "5%" },
+          size: "lg",
+          opacity: 0.5,
+          delay: 0.3,
+        },
+        {
+          icon: <Gem className="text-blue-400/30" />,
+          position: { bottom: "15%", left: "8%" },
+          size: "md",
+          opacity: 0.5,
+          delay: 0.5,
+        },
+      ]}
+    />
 
-          <motion.div
-            variants={fadeInVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="relative z-0 mb-16 text-center"
-          >
-            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
-              What Our <span className="text-blue-400">Clients Say</span>
-            </h2>
-            <p className="max-w-2xl mx-auto text-lg text-gray-400">
-              Hear from businesses that have trusted us with their projects.
-            </p>
-            <div className="w-20 h-1 mx-auto mt-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
-          </motion.div>
+    <motion.div
+      variants={fadeInVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="relative z-0 mb-16 text-center"
+    >
+      <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-5xl">
+        What Our <span className="text-blue-500">Clients Say</span>
+      </h2>
+      <p className="max-w-2xl mx-auto text-lg text-gray-700">
+        Hear from businesses and individuals who trust us with our services.
+      </p>
+      <div className="w-20 h-1 mx-auto mt-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
+    </motion.div>
 
-          <div className="relative z-0 grid grid-cols-1 gap-8 mt-16 md:grid-cols-3">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={testimonial.name}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="relative overflow-hidden border shadow-xl bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl border-white/10"
-              >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                <div className="absolute w-48 h-48 rounded-full -bottom-12 -right-12 bg-purple-500/10 blur-3xl"></div>
-                <div className="absolute w-48 h-48 rounded-full -top-12 -left-12 bg-blue-500/10 blur-3xl"></div>
-
-                <div className="p-8">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="relative">
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/30 to-blue-500/30 blur-md"></div>
-                      <div className="relative w-16 h-16 overflow-hidden border-2 rounded-full border-white/10">
-                        <img
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          loading="lazy"
-                          className="object-cover w-full h-full"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-white">
-                        {testimonial.name}
-                      </h3>
-                      <p className="text-gray-400">{testimonial.company}</p>
-                    </div>
-                  </div>
-                  <p className="text-lg leading-relaxed text-gray-300">
-                    {testimonial.quote}
-                  </p>
+    <div className="relative z-0 grid grid-cols-1 gap-8 mt-16 md:grid-cols-3">
+      {testimonials.map((testimonial, index) => (
+        <motion.div
+          key={testimonial.name}
+          variants={cardVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          whileHover={{ y: -8, transition: { duration: 0.3 } }}
+          className="relative overflow-hidden bg-white border border-gray-200 shadow-lg rounded-2xl"
+        >
+          <div className="p-8">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="relative">
+                <div className="relative w-16 h-16 overflow-hidden border-2 border-gray-200 rounded-full">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    loading="lazy"
+                    className="object-cover w-full h-full"
+                  />
                 </div>
-              </motion.div>
-            ))}
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900">{testimonial.name}</h3>
+                <p className="text-gray-600">{testimonial.company}</p>
+              </div>
+            </div>
+            <p className="text-lg leading-relaxed text-gray-700">{testimonial.quote}</p>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* FAQ Section */}
       <section
