@@ -1185,7 +1185,7 @@ const HomePage: React.FC = () => {
                   Bolia<span className="font-light">&Co.</span>
                 </motion.span>
               </motion.div>
-              <p className="max-w-xs mt-2 text-center text-gray-400 md:text-start">
+              <p className="items-center max-w-xs mt-2 ml-8 text-center text-gray-400 md:text-start md:ml-0">
                 Providing professional CA, taxation, and business advisory services with dedication and integrity.
               </p>
               <motion.div className="flex justify-center mt-6 space-x-6 md:justify-start">

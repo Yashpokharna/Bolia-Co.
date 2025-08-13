@@ -48,6 +48,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
             src={member.image}
             alt={member.name}
             fill
+            sizes="50,50"
             loading="lazy"
             className="object-cover transition-all"
           />
