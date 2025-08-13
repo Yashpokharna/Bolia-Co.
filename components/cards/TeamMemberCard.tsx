@@ -7,6 +7,7 @@ interface TeamMemberProps {
   name: string;
   title: string;
   image: string;
+  role?: string;
   social: {
     linkedin?: string;
     github?: string;
@@ -36,7 +37,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
       }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-xl overflow-hidden relative group"
+      className="relative overflow-hidden border shadow-xl bg-white/5 backdrop-blur-sm rounded-xl border-white/10 group"
     >
       {/* Profile section with hover effects */}
       <div className="relative pt-[80%] overflow-hidden">
@@ -66,14 +67,14 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
       </div>
 
       <motion.div
-        className="p-5 text-center relative z-10"
+        className="relative z-10 p-5 text-center"
         animate={{
           y: isHovered ? -5 : 0,
           transition: { type: "spring", stiffness: 400, damping: 17 },
         }}
       >
         <h3 className="text-xl font-bold text-white">{member.name}</h3>
-        <p className="text-blue-400 font-medium mt-1">{member.title}</p>
+        <p className="mt-1 font-medium text-blue-400">{member.title}</p>
 
         {/* Social links */}
         <motion.div
