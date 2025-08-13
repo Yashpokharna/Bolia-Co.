@@ -483,7 +483,7 @@ const HomePage: React.FC = () => {
       <Navbar />
 
       {/* Hero Section */}
-      {/* Hero Section */}
+     {/* Hero Section */}
       <header
         id="home"
         className="bg-white container mx-auto px-6 lg:px-8 pt-32 pb-32 flex flex-col items-center justify-center text-center relative overflow-hidden min-h-[90vh]"
@@ -559,6 +559,8 @@ const HomePage: React.FC = () => {
           </motion.div>
         </div>
       </header>
+
+
 
 
       {/* About Us Section */}
