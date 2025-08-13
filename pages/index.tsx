@@ -925,7 +925,7 @@ const HomePage: React.FC = () => {
                 role: member.role,
                 name: member.name,
                 image: member.image,
-                description: member.description,
+                // description: member.description,
               }}
             />
           ))}
