@@ -43,7 +43,7 @@ import ServiceCard from "@/components/cards/ServiceCard";
 import ProductCard from "@/components/cards/ProductCard";
 import TestimonialCard from "@/components/cards/TestimonialCard";
 import TeamMemberCard from "@/components/cards/TeamMemberCard";
-import FaqItem from "@/components/sections/FaqItem";
+// import FaqItem from "@/components/sections/FaqItem";
 import ContactInfo from "@/components/sections/ContactInfo";
 import ContactForm from "@/components/sections/ContactForm";
 import FloatingSVGGroup from "@/components/ui/FloatingSVGGroup";
